@@ -6,7 +6,16 @@ class MusicListTile extends StatelessWidget {
   String title;
   String subTitle;
   String img;
-  MusicListTile({super.key, required this.title, required this.subTitle, required this.img});
+  Function() tapVert;
+  Function() tapMenu;
+  MusicListTile({
+    super.key,
+    required this.title,
+    required this.subTitle,
+    required this.img,
+    required this.tapVert,
+    required this.tapMenu,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +29,11 @@ class MusicListTile extends StatelessWidget {
         spacing: 12,
         children: [
           IconButton(
-            onPressed: () {},
+            onPressed: tapVert,
             icon: const Icon(Icons.more_vert),
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: tapMenu,
             icon: const Icon(Icons.menu),
           ),
         ],
