@@ -817,9 +817,40 @@ class CreatePlaylistContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(
-          MaterialPageRoute(
-            builder: (context) => const MusicDetailView(),
+        showModalBottomSheet(
+          shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
+          )),
+          backgroundColor: MusicAppColors().darkBlue,
+          context: context,
+          builder: (context) => Padding(
+            padding: const EdgeInsets.all(12.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                TextField(
+                  textAlign: TextAlign.center,
+                  decoration: InputDecoration(
+                    hoverColor: MusicAppColors().white,
+                    border: UnderlineInputBorder(
+                      borderSide: BorderSide(color: MusicAppColors().orange),
+                    ),
+                    focusedBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: MusicAppColors().pink),
+                    ),
+                    enabledBorder: UnderlineInputBorder(
+                      borderSide: BorderSide(color: MusicAppColors().orange),
+                    ),
+                  ),
+                ),
+                GradientElevatedButton(
+                  text: "İsimlendir",
+                  onTap: () {},
+                )
+              ],
+            ),
           ),
         );
       },
