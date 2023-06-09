@@ -1,3 +1,4 @@
+import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player_app/musicApp/base/extension/contex_extension.dart';
 import 'package:music_player_app/musicApp/product/constants/app_strings.dart';
@@ -13,6 +14,49 @@ class MusicDetailView extends StatefulWidget {
 }
 
 class _MusicDetailViewState extends State<MusicDetailView> {
+  @override
+  void initState() {
+    super.initState();
+
+    setAudio();
+    audioPlayer.onPlayerStateChanged.listen((event) {
+      setState(() {
+        isPlaying = event == PlayerState.playing;
+      });
+    });
+    audioPlayer.onDurationChanged.listen((newDuration) {
+      setState(() {
+        duration = newDuration;
+      });
+    });
+    audioPlayer.onPositionChanged.listen((newPosition) {
+      setState(() {
+        position = newPosition;
+      });
+    });
+  }
+
+  Future setAudio() async {
+    audioPlayer.setReleaseMode(ReleaseMode.loop);
+    final player = AudioCache(prefix: "assets/audio/");
+    final url = await player.load("pence.mp3");
+    audioPlayer.setSourceUrl(url.path);
+  }
+
+  @override
+  void dispose() {
+    audioPlayer.dispose();
+    super.dispose();
+  }
+
+  final audioPlayer = AudioPlayer();
+  bool isPlaying = false;
+
+  Duration duration = Duration.zero;
+  Duration position = Duration.zero;
+
+  //
+  bool isFavorite = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,9 +168,15 @@ class _MusicDetailViewState extends State<MusicDetailView> {
     return Column(
       children: [
         Slider(
-          activeColor: MusicAppColors().white,
-          value: 0.4,
-          onChanged: (value) {},
+          min: 0,
+          max: duration.inSeconds.toDouble(),
+          value: position.inSeconds.toDouble(),
+          onChanged: (value) async {
+            final position = Duration(seconds: value.toInt());
+            await audioPlayer.seek(position);
+
+            await audioPlayer.resume();
+          },
         ),
         Padding(
           padding: const EdgeInsets.only(left: 24, right: 24),
@@ -134,13 +184,13 @@ class _MusicDetailViewState extends State<MusicDetailView> {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                "0:04",
+                formatTime(position),
                 style: context.textTheme.bodySmall?.copyWith(
                   color: MusicAppColors().white,
                 ),
               ),
               Text(
-                "0:04",
+                formatTime(duration - position),
                 style: context.textTheme.bodySmall?.copyWith(
                   color: MusicAppColors().white,
                 ),
@@ -150,6 +200,15 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         ),
       ],
     );
+  }
+
+  String formatTime(Duration duration) {
+    String twoDigits(int n) => n.toString().padLeft(2, "0");
+    final hours = twoDigits(duration.inHours);
+    final minutes = twoDigits(duration.inMinutes.remainder(60));
+    final seconds = twoDigits(duration.inSeconds.remainder(60));
+
+    return [if (duration.inHours > 0) hours, minutes, seconds].join(':');
   }
 
   Row MusicControlRow() {
@@ -179,8 +238,14 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         ),
         FloatingActionButton(
           backgroundColor: MusicAppColors().purple,
-          onPressed: () {},
-          child: Icon(Icons.pause),
+          child: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
+          onPressed: () async {
+            if (isPlaying) {
+              await audioPlayer.pause();
+            } else {
+              await audioPlayer.resume();
+            }
+          },
         ),
         IconButton(
           onPressed: () {},
@@ -214,7 +279,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
       iconOne: const Icon(
         Icons.playlist_add,
       ),
-      iconTwo: const Icon(Icons.favorite_border),
+      iconTwo: Icon(isFavorite ? Icons.favorite_border : Icons.favorite),
       onTap: () {},
     );
   }
