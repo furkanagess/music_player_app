@@ -1,8 +1,8 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/base/extension/contex_extension.dart';
 import 'package:music_player_app/musicApp/product/constants/app_strings.dart';
 import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
+import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 import 'package:music_player_app/musicApp/product/widgets/clickable_music_row.dart';
 import 'package:music_player_app/musicApp/product/widgets/download_listtile.dart';
 import 'package:music_player_app/musicApp/product/widgets/drawer_listtile.dart';
@@ -22,12 +22,12 @@ class MusicAppHomeView extends StatefulWidget {
 class _MusicAppHomeViewState extends State<MusicAppHomeView> {
   int current = 0;
   List<String> tabs = [
-    "Şarkılar",
-    "Oynatma Listeleri",
-    "Klasörler",
-    "Albümler ",
+    'Şarkılar',
+    'Oynatma Listeleri',
+    'Klasörler',
+    'Albümler ',
   ];
-  List<dynamic> widgets = [
+  List<Widget> widgets = [
     const MusicListenListView(),
     const MusicGridView(),
     const MusicDownloadListView(),
@@ -36,7 +36,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
 
   final buildBody = <Widget>[];
 
-  GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -47,10 +47,10 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
       body: SafeArea(
         child: ListView(
           children: [
-            SearchRow(context),
-            HeaderRow(context),
-            ChipListView(context),
-            AdMob(context),
+            searchRow(context),
+            headerRow(context),
+            chipListview(context),
+            adMob(context),
             widgets[current],
           ],
         ),
@@ -65,54 +65,46 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
         children: [
           DrawerHeader(
             child: Image.asset(
-              "assets/img/fio_logo.png",
+              'assets/img/fio_logo.png',
             ),
           ),
           DrawerListTile(
             onTap: () {},
-            title: "Kütüphane",
+            title: 'Kütüphane',
             icon: Icons.library_books,
           ),
           DrawerListTile(
             onTap: () {},
-            title: "Ekolayzer",
+            title: 'Ekolayzer',
             icon: Icons.equalizer,
           ),
           DrawerListTile(
             onTap: () {},
-            title: "Uyku Zamanlayıcısı",
+            title: 'Uyku Zamanlayıcısı',
             icon: Icons.access_alarm,
           ),
           DrawerListTile(
             onTap: () {},
-            title: "Dış Görünüm Teması",
+            title: 'Dış Görünüm Teması',
             icon: Icons.image,
           ),
           DrawerListTile(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const PremiumPageView(),
-                  ));
+              Navigator.pushNamed(context, 'premium');
             },
-            title: "Reklamları Kaldırın",
+            title: 'Reklamları Kaldırın',
             icon: Icons.videocam_off_outlined,
           ),
           DrawerListTile(
             onTap: () {},
-            title: "Zil Sesleri Ücretsiz",
+            title: 'Zil Sesleri Ücretsiz',
             icon: Icons.music_note,
           ),
           DrawerListTile(
             onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SettingsPageView(),
-                  ));
+              Navigator.pushNamed(context, 'settings');
             },
-            title: "Ayarlar",
+            title: 'Ayarlar',
             icon: Icons.settings,
           ),
         ],
@@ -120,14 +112,14 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
     );
   }
 
-  Widget AdMob(BuildContext context) {
+  Widget adMob(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 16, right: 16, bottom: 16),
       child: InkWell(
         onTap: () {
           showDialog(
             context: context,
-            builder: (context) => PremiumPopUp(context),
+            builder: premiumPopup,
           );
         },
         child: Container(
@@ -138,7 +130,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
           ),
           child: Center(
               child: Text(
-            "ADS",
+            'ADS',
             style: context.textTheme.headlineLarge?.copyWith(
               color: MusicAppColors().white,
             ),
@@ -148,7 +140,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
     );
   }
 
-  Widget PremiumPopUp(BuildContext context) {
+  Widget premiumPopup(BuildContext context) {
     return AlertDialog(
       shape: BeveledRectangleBorder(borderRadius: BorderRadius.circular(10)),
       elevation: 3,
@@ -176,7 +168,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
           SizedBox(
             width: context.dynamicWidth(0.7),
             height: context.dynamicHeight(0.2),
-            child: Image.asset("assets/img/fio_logo.png"),
+            child: Image.asset('assets/img/fio_logo.png'),
           ),
           SizedBox(
             height: context.dynamicHeight(0.05),
@@ -212,7 +204,9 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
           ),
           GradientElevatedButton(
             text: MusicAppStrings().next,
-            onTap: () {},
+            onTap: () {
+              Navigator.pushNamed(context, 'premium');
+            },
           ),
           SizedBox(
             height: context.dynamicHeight(0.01),
@@ -220,10 +214,13 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
           Row(
             children: [
               Padding(
-                padding: const EdgeInsets.all(8.0),
+                padding: const EdgeInsets.all(8),
                 child: Text(
                   MusicAppStrings().reachProperties2,
-                  style: context.textTheme.bodySmall?.copyWith(color: MusicAppColors().white, fontWeight: FontWeight.w300),
+                  style: context.textTheme.bodySmall?.copyWith(
+                    color: MusicAppColors().white,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
               ),
             ],
@@ -260,7 +257,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
             leading: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.network(
-                "https://picsum.photos/200",
+                'https://picsum.photos/200',
                 height: 64,
                 width: 64,
               ),
@@ -282,7 +279,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
                 ),
                 child: Center(
                     child: Text(
-                  "ADS",
+                  'ADS',
                   style: context.textTheme.headlineLarge?.copyWith(
                     color: MusicAppColors().white,
                   ),
@@ -295,7 +292,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
     );
   }
 
-  Row SearchRow(BuildContext context) {
+  Row searchRow(BuildContext context) {
     return Row(
       children: [
         Padding(
@@ -316,7 +313,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
         ),
         Flexible(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8),
             child: TextField(
               decoration: InputDecoration(
                 hintText: MusicAppStrings().search,
@@ -341,7 +338,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
     );
   }
 
-  SizedBox ChipListView(BuildContext context) {
+  SizedBox chipListview(BuildContext context) {
     return SizedBox(
       height: context.dynamicHeight(0.1),
       child: ListView.builder(
@@ -370,12 +367,12 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
     );
   }
 
-  Row HeaderRow(BuildContext context) {
+  Row headerRow(BuildContext context) {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 16.0),
+          padding: const EdgeInsets.only(left: 16),
           child: Text(
             MusicAppStrings().header,
             style: context.textTheme.headlineSmall?.copyWith(
@@ -444,7 +441,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
             leading: ClipRRect(
               borderRadius: BorderRadius.circular(10),
               child: Image.network(
-                "https://picsum.photos/200",
+                'https://picsum.photos/200',
                 height: 64,
                 width: 64,
               ),
@@ -462,7 +459,7 @@ class _MusicAppHomeViewState extends State<MusicAppHomeView> {
             width: 350,
             height: 280,
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8),
               child: Column(
                 children: [
                   ClickableMusicRow(
@@ -554,7 +551,7 @@ class MusicDownloadListView extends StatelessWidget {
                   leading: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
-                      "https://picsum.photos/200",
+                      'https://picsum.photos/200',
                       height: 64,
                       width: 64,
                     ),
@@ -576,7 +573,7 @@ class MusicDownloadListView extends StatelessWidget {
                       ),
                       child: Center(
                           child: Text(
-                        "ADS",
+                        'ADS',
                         style: context.textTheme.headlineLarge?.copyWith(
                           color: MusicAppColors().white,
                         ),
@@ -589,15 +586,11 @@ class MusicDownloadListView extends StatelessWidget {
           );
         },
         tapMusic: () {
-          Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => const MusicDetailView(),
-              ));
+          Navigator.pushNamed(context, 'detail');
         },
         title: MusicAppStrings().musicTitle,
         subTitle: MusicAppStrings().musicSubTitle,
-        img: "https://picsum.photos/200",
+        img: 'https://picsum.photos/200',
       ),
     );
   }
@@ -653,12 +646,14 @@ class MusicListenListView extends StatelessWidget {
                   leading: ClipRRect(
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(
-                      "https://picsum.photos/200",
+                      'https://picsum.photos/200',
                       height: 64,
                       width: 64,
                     ),
                   ),
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pushNamed(context, 'detail');
+                  },
                 ),
                 SizedBox(
                   height: context.dynamicHeight(0.01),
@@ -671,7 +666,7 @@ class MusicListenListView extends StatelessWidget {
                   width: 350,
                   height: 280,
                   child: Padding(
-                    padding: const EdgeInsets.all(8.0),
+                    padding: const EdgeInsets.all(8),
                     child: Column(
                       children: [
                         ClickableMusicRow(
@@ -720,7 +715,7 @@ class MusicListenListView extends StatelessWidget {
         tapVert: () {},
         title: MusicAppStrings().musicTitle,
         subTitle: MusicAppStrings().musicSubTitle,
-        img: "https://picsum.photos/200",
+        img: 'https://picsum.photos/200',
       ),
     );
   }
@@ -736,7 +731,7 @@ class MusicGridView extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        CreatePlaylistContainer(),
+        const CreatePlaylistContainer(),
         SizedBox(height: context.dynamicHeight(0.05)),
         GridView.builder(
           shrinkWrap: true,
@@ -752,11 +747,7 @@ class MusicGridView extends StatelessWidget {
             children: [
               InkWell(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const MusicDetailView(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, 'detail');
                 },
                 child: Container(
                   width: context.dynamicWidth(0.42),
@@ -765,7 +756,7 @@ class MusicGridView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10),
                     image: const DecorationImage(
                       image: NetworkImage(
-                        "https://picsum.photos/200",
+                        'https://picsum.photos/200',
                       ),
                       fit: BoxFit.cover,
                     ),
@@ -774,11 +765,7 @@ class MusicGridView extends StatelessWidget {
               ),
               ListTile(
                 onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => const MusicDetailView(),
-                    ),
-                  );
+                  Navigator.pushNamed(context, 'detail');
                 },
                 title: Text(
                   MusicAppStrings().musicTitle,
@@ -818,21 +805,26 @@ class CreatePlaylistContainer extends StatelessWidget {
     return InkWell(
       onTap: () {
         showModalBottomSheet(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(20),
-            topRight: Radius.circular(20),
-          )),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(20),
+              topRight: Radius.circular(20),
+            ),
+          ),
           backgroundColor: MusicAppColors().darkBlue,
           context: context,
           builder: (context) => Padding(
-            padding: const EdgeInsets.all(12.0),
+            padding: const EdgeInsets.all(12),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 TextField(
                   textAlign: TextAlign.center,
                   decoration: InputDecoration(
+                    hintText: 'Oynatma Listesi Adı',
+                    hintStyle: context.textTheme.bodyMedium?.copyWith(
+                      color: MusicAppColors().lightWhite,
+                    ),
                     hoverColor: MusicAppColors().white,
                     border: UnderlineInputBorder(
                       borderSide: BorderSide(color: MusicAppColors().orange),
@@ -846,7 +838,7 @@ class CreatePlaylistContainer extends StatelessWidget {
                   ),
                 ),
                 GradientElevatedButton(
-                  text: "İsimlendir",
+                  text: 'İsimlendir',
                   onTap: () {},
                 )
               ],
@@ -855,17 +847,16 @@ class CreatePlaylistContainer extends StatelessWidget {
         );
       },
       child: Padding(
-        padding: EdgeInsets.only(left: 12, top: 12),
+        padding: const EdgeInsets.only(left: 12, top: 12),
         child: DottedBorder(
           borderType: BorderType.RRect,
-          strokeCap: StrokeCap.butt,
-          strokeWidth: 2.0,
-          dashPattern: [
+          strokeWidth: 2,
+          dashPattern: const [
             10.0,
           ],
-          radius: Radius.circular(10),
+          radius: const Radius.circular(10),
           color: MusicAppColors().transparentWhite,
-          child: Container(
+          child: SizedBox(
             width: context.dynamicWidth(0.42),
             height: context.dynamicHeight(0.25),
             child: Column(
@@ -877,7 +868,7 @@ class CreatePlaylistContainer extends StatelessWidget {
                   size: 30,
                 ),
                 Text(
-                  "Oynatma Listesi \n        Oluştur",
+                  'Oynatma Listesi \n        Oluştur',
                   style: context.textTheme.bodyMedium?.copyWith(
                     color: MusicAppColors().white,
                   ),

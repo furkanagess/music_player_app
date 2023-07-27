@@ -1,10 +1,9 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/base/extension/contex_extension.dart';
 import 'package:music_player_app/musicApp/product/constants/app_strings.dart';
 import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
+import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 import 'package:music_player_app/musicApp/product/widgets/without_image_listtile.dart';
-import 'package:music_player_app/musicApp/view/home/home_view.dart';
 
 class MusicDetailView extends StatefulWidget {
   const MusicDetailView({super.key});
@@ -36,11 +35,11 @@ class _MusicDetailViewState extends State<MusicDetailView> {
     });
   }
 
-  Future setAudio() async {
-    audioPlayer.setReleaseMode(ReleaseMode.loop);
-    final player = AudioCache(prefix: "assets/audio/");
-    final url = await player.load("pence.mp3");
-    audioPlayer.setSourceUrl(url.path);
+  Future<void> setAudio() async {
+    await audioPlayer.setReleaseMode(ReleaseMode.loop);
+    final player = AudioCache(prefix: 'assets/audio/');
+    final url = await player.load('pence.mp3');
+    await audioPlayer.setSourceUrl(url.path);
   }
 
   @override
@@ -55,7 +54,6 @@ class _MusicDetailViewState extends State<MusicDetailView> {
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
 
-  //
   bool isFavorite = false;
   @override
   Widget build(BuildContext context) {
@@ -67,14 +65,14 @@ class _MusicDetailViewState extends State<MusicDetailView> {
           padding: const EdgeInsets.only(left: 16, right: 16),
           child: Column(
             children: [
-              MusicImage(),
+              musicImage(),
               SizedBox(height: context.dynamicHeight(0.003)),
-              MusicNameListtile(),
-              SliderTimer(context),
+              musicNameListTile(),
+              sliderTimer(context),
               SizedBox(height: context.dynamicHeight(0.007)),
-              MusicControlRow(),
+              musicControllRow(),
               SizedBox(height: context.dynamicHeight(0.05)),
-              MusicLyrics(context),
+              musicLyrics(context),
             ],
           ),
         ),
@@ -88,11 +86,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
       elevation: 0,
       leading: IconButton(
         onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => MusicAppHomeView(),
-            ),
-          );
+          Navigator.pushNamed(context, 'home');
         },
         icon: const Icon(
           Icons.keyboard_arrow_down,
@@ -107,11 +101,11 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         )
       ],
       centerTitle: true,
-      title: const Text("Albüm Adı"),
+      title: const Text('Albüm Adı'),
     );
   }
 
-  InkWell MusicLyrics(BuildContext context) {
+  InkWell musicLyrics(BuildContext context) {
     return InkWell(
       onTap: () {},
       child: Container(
@@ -122,14 +116,14 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         height: 358,
         width: 358,
         child: Padding(
-          padding: EdgeInsets.only(left: 16, right: 16, top: 8),
+          padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    "Şarkı Sözü",
+                    'Şarkı Sözü',
                     style: context.textTheme.bodyMedium?.copyWith(
                       color: MusicAppColors().white,
                     ),
@@ -144,13 +138,13 @@ class _MusicDetailViewState extends State<MusicDetailView> {
                 ],
               ),
               ListView.builder(
-                padding: EdgeInsets.only(top: 16),
+                padding: const EdgeInsets.only(top: 16),
                 shrinkWrap: true,
                 itemCount: 7,
                 itemBuilder: (context, index) => Padding(
                   padding: const EdgeInsets.only(top: 4),
                   child: Text(
-                    " Just awaken shaken once again, so you know it's on",
+                    "Just awaken shaken once again, so you know it's on",
                     style: context.textTheme.bodyLarge?.copyWith(
                       color: MusicAppColors().white,
                     ),
@@ -164,17 +158,17 @@ class _MusicDetailViewState extends State<MusicDetailView> {
     );
   }
 
-  Column SliderTimer(BuildContext context) {
+  Column sliderTimer(BuildContext context) {
     return Column(
       children: [
         Slider(
-          min: 0,
+          activeColor: MusicAppColors().purple,
+          inactiveColor: MusicAppColors().lightWhite,
           max: duration.inSeconds.toDouble(),
           value: position.inSeconds.toDouble(),
           onChanged: (value) async {
             final position = Duration(seconds: value.toInt());
             await audioPlayer.seek(position);
-
             await audioPlayer.resume();
           },
         ),
@@ -203,7 +197,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
   }
 
   String formatTime(Duration duration) {
-    String twoDigits(int n) => n.toString().padLeft(2, "0");
+    String twoDigits(int n) => n.toString().padLeft(2, '0');
     final hours = twoDigits(duration.inHours);
     final minutes = twoDigits(duration.inMinutes.remainder(60));
     final seconds = twoDigits(duration.inSeconds.remainder(60));
@@ -211,7 +205,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
     return [if (duration.inHours > 0) hours, minutes, seconds].join(':');
   }
 
-  Row MusicControlRow() {
+  Row musicControllRow() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: [
@@ -272,7 +266,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
     );
   }
 
-  NoImageTwoIconListTile MusicNameListtile() {
+  NoImageTwoIconListTile musicNameListTile() {
     return NoImageTwoIconListTile(
       title: MusicAppStrings().musicTitle,
       subTitle: MusicAppStrings().musicSubTitle,
@@ -280,11 +274,10 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         Icons.playlist_add,
       ),
       iconTwo: Icon(isFavorite ? Icons.favorite_border : Icons.favorite),
-      onTap: () {},
     );
   }
 
-  Container MusicImage() {
+  Container musicImage() {
     return Container(
       height: 358,
       width: 358,
@@ -292,7 +285,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         borderRadius: BorderRadius.all(Radius.circular(20)),
         image: DecorationImage(
           image: AssetImage(
-            "assets/img/asset.png",
+            'assets/img/asset.png',
           ),
         ),
       ),
