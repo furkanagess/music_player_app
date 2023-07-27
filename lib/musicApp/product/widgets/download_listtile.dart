@@ -1,5 +1,3 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 
 import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
@@ -8,8 +6,8 @@ class DownloadListtie extends StatelessWidget {
   String title;
   String subTitle;
   String img;
-  Function() tapMusic;
-  Function() tapDownload;
+  VoidCallback tapMusic;
+  VoidCallback tapDownload;
   DownloadListtie({
     super.key,
     required this.title,

@@ -1,7 +1,7 @@
 // ignore_for_file: must_be_immutable
 
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/base/extension/contex_extension.dart';
+import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
 
 class CustomSettingsListtile extends StatelessWidget {
