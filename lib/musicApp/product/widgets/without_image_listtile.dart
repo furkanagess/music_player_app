@@ -8,7 +8,7 @@ class NoImageTwoIconListTile extends StatelessWidget {
   String subTitle;
   Widget iconOne;
   Widget iconTwo;
-  Function() onTap;
+  Function()? onTap;
 
   NoImageTwoIconListTile({
     super.key,
@@ -16,7 +16,7 @@ class NoImageTwoIconListTile extends StatelessWidget {
     required this.subTitle,
     required this.iconOne,
     required this.iconTwo,
-    required this.onTap,
+    this.onTap,
   });
 
   @override
