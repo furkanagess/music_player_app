@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/view/detail/music_detail_view.dart';
-import 'package:music_player_app/musicApp/view/home/home_view.dart';
-import 'package:music_player_app/musicApp/view/premium/premium_view.dart';
-import 'package:music_player_app/musicApp/view/settings/settings_view.dart';
+import 'package:music_player_app/musicApp/feature/view/detail/music_detail_view.dart';
+import 'package:music_player_app/musicApp/feature/view/home/home_view.dart';
+import 'package:music_player_app/musicApp/feature/view/premium/premium_view.dart';
+import 'package:music_player_app/musicApp/feature/view/settings/settings_view.dart';
+import 'package:music_player_app/musicApp/product/constants/app_strings.dart';
+import 'package:music_player_app/musicApp/product/constants/navigation_constants.dart';
 
 void main() => runApp(const MyApp());
 
@@ -13,13 +15,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Music Player App',
+      title: AppStrings.appName,
       home: const MusicAppHomeView(),
       routes: {
-        'premium': (context) => const PremiumPageView(),
-        'settings': (context) => const SettingsPageView(),
-        'detail': (context) => const MusicDetailView(),
-        'home': (context) => const MusicAppHomeView(),
+        NavigationConstants.premium: (context) => const PremiumPageView(),
+        NavigationConstants.settings: (context) => const SettingsPageView(),
+        NavigationConstants.detail: (context) => const MusicDetailView(),
+        NavigationConstants.home: (context) => const MusicAppHomeView(),
       },
     );
   }
