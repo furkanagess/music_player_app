@@ -1,13 +1,16 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 
 class ClickableMusicRow extends StatelessWidget {
-  Function() onTap;
+  VoidCallback onTap;
   String title;
   IconData icon;
-  ClickableMusicRow({super.key, required this.onTap, required this.title, required this.icon});
+  ClickableMusicRow({
+    super.key,
+    required this.onTap,
+    required this.title,
+    required this.icon,
+  });
 
   @override
   Widget build(BuildContext context) {
