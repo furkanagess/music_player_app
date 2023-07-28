@@ -2,20 +2,20 @@ import 'package:flutter/material.dart';
 
 import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
 
-class DownloadListtie extends StatelessWidget {
-  String title;
-  String subTitle;
-  String img;
-  VoidCallback tapMusic;
-  VoidCallback tapDownload;
-  DownloadListtie({
+final class DownloadListtie extends StatelessWidget {
+  const DownloadListtie({
     super.key,
-    required this.title,
-    required this.subTitle,
-    required this.img,
-    required this.tapMusic,
-    required this.tapDownload,
+    this.title,
+    this.subTitle,
+    this.img,
+    this.tapMusic,
+    this.tapDownload,
   });
+  final String? title;
+  final String? subTitle;
+  final String? img;
+  final VoidCallback? tapMusic;
+  final VoidCallback? tapDownload;
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +23,8 @@ class DownloadListtie extends StatelessWidget {
       dense: false,
       iconColor: Colors.white,
       textColor: Colors.white,
-      title: Text(title),
-      subtitle: Text(subTitle),
+      title: Text(title!),
+      subtitle: Text(subTitle!),
       trailing: InkWell(
         onTap: tapDownload,
         child: CircleAvatar(
@@ -37,7 +37,7 @@ class DownloadListtie extends StatelessWidget {
       leading: ClipRRect(
         borderRadius: BorderRadius.circular(10),
         child: Image.network(
-          img,
+          img!,
           height: 64,
           width: 64,
         ),
