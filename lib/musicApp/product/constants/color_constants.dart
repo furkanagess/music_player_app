@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-class MusicAppColors {
+@immutable
+final class ColorConstants {
   Color get purple => const Color(0xff6e4bf5);
   Color get pink => const Color(0xffea489f);
   Color get orange => const Color(0xfff5735f);
