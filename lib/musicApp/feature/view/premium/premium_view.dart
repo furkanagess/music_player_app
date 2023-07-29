@@ -10,7 +10,7 @@ class PremiumPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorConstants().background,
+      backgroundColor: AppColors().background,
       appBar: buildAppbar(context),
       body: Padding(
         padding: const EdgeInsets.only(left: 16, right: 16),
@@ -35,7 +35,7 @@ class PremiumPageView extends StatelessWidget {
 
   AppBar buildAppbar(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorConstants().background,
+      backgroundColor: AppColors().background,
       elevation: 0,
       leading: IconButton(
         onPressed: () {
@@ -61,7 +61,7 @@ class PremiumPageView extends StatelessWidget {
     return Text(
       'Tüm reklamları kaldır. Tüm özelliklere erişim sağla ve özgürce dinle. \n Tüm reklamları kaldır. Tüm özelliklere erişim sağla ve özgürce dinle. ',
       style: context.textTheme.bodySmall?.copyWith(
-        color: ColorConstants().white,
+        color: AppColors().white,
       ),
     );
   }
@@ -74,11 +74,11 @@ class PremiumPageView extends StatelessWidget {
           header: '1 Ay',
           bodyText1: 'Sıradan Üyelik',
           bodyText2: '',
-          color1: ColorConstants().transparentWhite,
-          color2: ColorConstants().transparentWhite,
-          color3: ColorConstants().transparentWhite,
-          color4: ColorConstants().transparentWhite,
-          subColor: ColorConstants().transparentWhite,
+          color1: AppColors().transparentWhite,
+          color2: AppColors().transparentWhite,
+          color3: AppColors().transparentWhite,
+          color4: AppColors().transparentWhite,
+          subColor: AppColors().transparentWhite,
           subText1: '19.99₺',
           subText2: 'Aylık',
           onTap: () {},
@@ -88,11 +88,11 @@ class PremiumPageView extends StatelessWidget {
           header: '1 Yıl',
           bodyText1: '%50 Kazanç',
           bodyText2: '119.99₺',
-          color1: ColorConstants().purple,
-          color2: ColorConstants().pink,
-          color3: ColorConstants().orange,
-          color4: ColorConstants().yellow,
-          subColor: ColorConstants().transparentWhite,
+          color1: AppColors().purple,
+          color2: AppColors().pink,
+          color3: AppColors().orange,
+          color4: AppColors().yellow,
+          subColor: AppColors().transparentWhite,
           subText1: '9.99₺',
           subText2: 'Aylık',
           onTap: () {},
@@ -105,7 +105,7 @@ class PremiumPageView extends StatelessWidget {
     return Text(
       'Tüm reklamları kaldır. Tüm özelliklere \n erişim sağla ve özgürce dinle.',
       style: context.textTheme.bodyMedium?.copyWith(
-        color: ColorConstants().white,
+        color: AppColors().white,
       ),
     );
   }

@@ -12,15 +12,15 @@ final class HomeBottomSheet extends ChangeNotifier {
   Future<dynamic> musicControllBottomSheet(BuildContext context) {
     return showModalBottomSheet(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-      backgroundColor: ColorConstants().darkBlue,
+      backgroundColor: AppColors().darkBlue,
       context: context,
       builder: (context) => Column(
         children: [
           ListTile(
             contentPadding: context.paddingLow,
             dense: false,
-            iconColor: ColorConstants().white,
-            textColor: ColorConstants().white,
+            iconColor: AppColors().white,
+            textColor: AppColors().white,
             title: const Text(
               AppStrings.musicTitle,
             ),
@@ -59,7 +59,7 @@ final class HomeBottomSheet extends ChangeNotifier {
           ),
           Container(
             decoration: BoxDecoration(
-              color: ColorConstants().transparentWhite,
+              color: AppColors().transparentWhite,
               borderRadius: BorderRadius.circular(20),
             ),
             width: context.dynamicWidth(0.9),
@@ -92,15 +92,15 @@ final class HomeBottomSheet extends ChangeNotifier {
           topRight: Radius.circular(20),
         ),
       ),
-      backgroundColor: ColorConstants().darkBlue,
+      backgroundColor: AppColors().darkBlue,
       context: context,
       builder: (context) => Column(
         children: [
           ListTile(
             contentPadding: const EdgeInsets.all(8),
             dense: false,
-            iconColor: ColorConstants().white,
-            textColor: ColorConstants().white,
+            iconColor: AppColors().white,
+            textColor: AppColors().white,
             title: const Text(
               AppStrings.musicTitle,
             ),
@@ -108,7 +108,7 @@ final class HomeBottomSheet extends ChangeNotifier {
               AppStrings.musicSubTitle,
             ),
             trailing: CircleAvatar(
-              backgroundColor: ColorConstants().purple,
+              backgroundColor: AppColors().purple,
               child: const Icon(
                 Icons.close,
               ),
@@ -134,13 +134,13 @@ final class HomeBottomSheet extends ChangeNotifier {
                 height: context.dynamicHeight(0.1),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: ColorConstants().transparentWhite,
+                  color: AppColors().transparentWhite,
                 ),
                 child: Center(
                     child: Text(
                   AppStrings.ads,
                   style: context.textTheme.headlineLarge?.copyWith(
-                    color: ColorConstants().white,
+                    color: AppColors().white,
                   ),
                 )),
               ),
@@ -160,7 +160,7 @@ final class HomeBottomSheet extends ChangeNotifier {
             borderRadius: BorderRadius.circular(10),
           ),
           elevation: 3,
-          backgroundColor: ColorConstants().darkBlue,
+          backgroundColor: AppColors().darkBlue,
           title: Column(
             children: [
               Row(
@@ -175,7 +175,7 @@ final class HomeBottomSheet extends ChangeNotifier {
                       height: context.dynamicHeight(0.05),
                       child: Icon(
                         Icons.close,
-                        color: ColorConstants().white,
+                        color: AppColors().white,
                       ),
                     ),
                   )
@@ -197,14 +197,14 @@ final class HomeBottomSheet extends ChangeNotifier {
                   Text(
                     AppStrings.closeAd,
                     style: context.textTheme.bodyLarge?.copyWith(
-                      color: ColorConstants().white,
+                      color: AppColors().white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
                   Text(
                     AppStrings.monthly,
                     style: context.textTheme.bodyLarge?.copyWith(
-                      color: ColorConstants().white,
+                      color: AppColors().white,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -218,7 +218,7 @@ final class HomeBottomSheet extends ChangeNotifier {
                   Text(
                     AppStrings.reachProperties,
                     style: context.textTheme.bodyMedium?.copyWith(
-                      color: ColorConstants().white,
+                      color: AppColors().white,
                     ),
                   ),
                 ],
@@ -242,7 +242,7 @@ final class HomeBottomSheet extends ChangeNotifier {
                     child: Text(
                       AppStrings.reachProperties2,
                       style: context.textTheme.bodySmall?.copyWith(
-                        color: ColorConstants().white,
+                        color: AppColors().white,
                         fontWeight: FontWeight.w300,
                       ),
                     ),
@@ -264,7 +264,7 @@ final class HomeBottomSheet extends ChangeNotifier {
           topRight: Radius.circular(20),
         ),
       ),
-      backgroundColor: ColorConstants().darkBlue,
+      backgroundColor: AppColors().darkBlue,
       context: context,
       builder: (context) => Padding(
         padding: context.paddingNormal,
@@ -276,17 +276,17 @@ final class HomeBottomSheet extends ChangeNotifier {
               decoration: InputDecoration(
                 hintText: AppStrings.playlistName,
                 hintStyle: context.textTheme.bodyMedium?.copyWith(
-                  color: ColorConstants().lightWhite,
+                  color: AppColors().lightWhite,
                 ),
-                hoverColor: ColorConstants().white,
+                hoverColor: AppColors().white,
                 border: UnderlineInputBorder(
-                  borderSide: BorderSide(color: ColorConstants().orange),
+                  borderSide: BorderSide(color: AppColors().orange),
                 ),
                 focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: ColorConstants().pink),
+                  borderSide: BorderSide(color: AppColors().pink),
                 ),
                 enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: ColorConstants().orange),
+                  borderSide: BorderSide(color: AppColors().orange),
                 ),
               ),
             ),
