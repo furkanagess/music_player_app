@@ -1,45 +1,43 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
 import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
 
-class NoImageTwoIconListTile extends StatelessWidget {
-  String title;
-  String subTitle;
-  Widget iconOne;
-  Widget iconTwo;
-  Function()? onTap;
-
-  NoImageTwoIconListTile({
+@immutable
+final class NoImageTwoIconListTile extends StatelessWidget {
+  const NoImageTwoIconListTile({
     super.key,
-    required this.title,
-    required this.subTitle,
-    required this.iconOne,
-    required this.iconTwo,
+    this.title,
+    this.subTitle,
+    this.iconOne,
+    this.iconTwo,
     this.onTap,
   });
+  final String? title;
+  final String? subTitle;
+  final Widget? iconOne;
+  final Widget? iconTwo;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      iconColor: ColorConstants().white,
-      textColor: ColorConstants().white,
+      iconColor: AppColors().white,
+      textColor: AppColors().white,
       title: Text(
-        title,
+        title!,
       ),
       subtitle: Text(
-        subTitle,
+        subTitle!,
       ),
       trailing: Wrap(
         spacing: 12,
         children: <Widget>[
           IconButton(
             onPressed: () {},
-            icon: iconOne,
+            icon: iconOne!,
           ),
           IconButton(
             onPressed: () {},
-            icon: iconTwo,
+            icon: iconTwo!,
           ),
         ],
       ),

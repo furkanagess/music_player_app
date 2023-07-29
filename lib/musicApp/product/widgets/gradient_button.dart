@@ -1,13 +1,16 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
+import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 
-class GradientElevatedButton extends StatelessWidget {
-  String text;
-  Function() onTap;
-  GradientElevatedButton({super.key, required this.text, required this.onTap});
+@immutable
+final class GradientElevatedButton extends StatelessWidget {
+  const GradientElevatedButton({
+    super.key,
+    this.text,
+    this.onTap,
+  });
+  final String? text;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -17,17 +20,22 @@ class GradientElevatedButton extends StatelessWidget {
         width: context.dynamicWidth(0.7),
         height: context.dynamicHeight(0.06),
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(10),
-            gradient: LinearGradient(colors: [
-              ColorConstants().purple,
-              ColorConstants().pink,
-              ColorConstants().orange,
-              ColorConstants().yellow,
-            ])),
+          borderRadius: BorderRadius.circular(10),
+          gradient: LinearGradient(
+            colors: [
+              AppColors().purple,
+              AppColors().pink,
+              AppColors().orange,
+              AppColors().yellow,
+            ],
+          ),
+        ),
         child: Center(
           child: Text(
-            text,
-            style: context.textTheme.bodyLarge?.copyWith(color: Colors.white),
+            text!,
+            style: context.textTheme.bodyLarge?.copyWith(
+              color: AppColors().white,
+            ),
           ),
         ),
       ),

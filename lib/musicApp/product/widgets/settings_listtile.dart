@@ -1,16 +1,22 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
+import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 
-class CustomSettingsListtile extends StatelessWidget {
-  Function() onTap;
-  Function()? onPressed;
-  String title;
-  String? subTitle;
-  IconData? icon;
-  CustomSettingsListtile({super.key, required this.onTap, required this.title, this.subTitle, this.icon, this.onPressed});
+@immutable
+final class CustomSettingsListtile extends StatelessWidget {
+  const CustomSettingsListtile({
+    super.key,
+    this.onTap,
+    this.title,
+    this.subTitle,
+    this.icon,
+    this.onPressed,
+  });
+  final VoidCallback? onTap;
+  final VoidCallback? onPressed;
+  final String? title;
+  final String? subTitle;
+  final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -18,23 +24,23 @@ class CustomSettingsListtile extends StatelessWidget {
       visualDensity: VisualDensity.adaptivePlatformDensity,
       onTap: onTap,
       title: Text(
-        title,
+        title!,
         style: context.textTheme.bodyMedium?.copyWith(
-          color: ColorConstants().white,
+          color: AppColors().white,
         ),
       ),
       subtitle: Text(
-        subTitle ?? "",
+        subTitle ?? '',
         style: context.textTheme.bodyMedium?.copyWith(
-          color: ColorConstants().lightWhite,
+          color: AppColors().lightWhite,
         ),
       ),
       trailing: IconButton(
-        onPressed: onPressed ?? null,
+        onPressed: onPressed,
         icon: Icon(
           icon,
-          size: 34,
-          color: ColorConstants().white,
+          size: 30,
+          color: AppColors().white,
         ),
       ),
     );

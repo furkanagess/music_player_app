@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
+import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 
+@immutable
 final class DownloadListtie extends StatelessWidget {
   const DownloadListtie({
     super.key,
@@ -21,14 +23,14 @@ final class DownloadListtie extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       dense: false,
-      iconColor: Colors.white,
-      textColor: Colors.white,
+      iconColor: AppColors().white,
+      textColor: AppColors().white,
       title: Text(title!),
       subtitle: Text(subTitle!),
       trailing: InkWell(
         onTap: tapDownload,
         child: CircleAvatar(
-          backgroundColor: ColorConstants().purple,
+          backgroundColor: AppColors().purple,
           child: const Icon(
             Icons.download,
           ),
@@ -38,8 +40,8 @@ final class DownloadListtie extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         child: Image.network(
           img!,
-          height: 64,
-          width: 64,
+          height: context.dynamicHeight(0.15),
+          width: context.dynamicWidth(0.15),
         ),
       ),
       onTap: tapMusic,

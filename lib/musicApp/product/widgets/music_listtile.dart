@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
+import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 
+@immutable
 final class MusicListTile extends StatelessWidget {
   const MusicListTile({
     super.key,
@@ -23,8 +26,8 @@ final class MusicListTile extends StatelessWidget {
       onTap: onTap,
       child: ListTile(
         dense: false,
-        iconColor: Colors.white,
-        textColor: Colors.white,
+        iconColor: AppColors().white,
+        textColor: AppColors().white,
         title: Text(title!),
         subtitle: Text(subTitle!),
         trailing: Wrap(
@@ -44,8 +47,8 @@ final class MusicListTile extends StatelessWidget {
           borderRadius: BorderRadius.circular(10),
           child: Image.network(
             img!,
-            height: 64,
-            width: 64,
+            height: context.dynamicHeight(0.15),
+            width: context.dynamicWidth(0.15),
           ),
         ),
         onTap: () {},

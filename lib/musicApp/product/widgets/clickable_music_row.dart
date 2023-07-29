@@ -1,16 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
 import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 
-class ClickableMusicRow extends StatelessWidget {
-  VoidCallback onTap;
-  String title;
-  IconData icon;
-  ClickableMusicRow({
+@immutable
+final class ClickableMusicRow extends StatelessWidget {
+  const ClickableMusicRow({
     super.key,
-    required this.onTap,
-    required this.title,
-    required this.icon,
+    this.onTap,
+    this.title,
+    this.icon,
   });
+  final VoidCallback? onTap;
+  final String? title;
+  final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
@@ -22,12 +24,14 @@ class ClickableMusicRow extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              title,
-              style: context.textTheme.bodyMedium?.copyWith(color: Colors.white),
+              title!,
+              style: context.textTheme.bodyMedium?.copyWith(
+                color: AppColors().white,
+              ),
             ),
             Icon(
               icon,
-              color: Colors.white,
+              color: AppColors().white,
             ),
           ],
         ),

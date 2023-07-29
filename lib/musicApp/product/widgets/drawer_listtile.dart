@@ -1,24 +1,31 @@
-// ignore_for_file: must_be_immutable
-
 import 'package:flutter/material.dart';
+import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
 import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
 
-class DrawerListTile extends StatelessWidget {
-  Function() onTap;
-  String title;
-  IconData icon;
-  DrawerListTile({super.key, required this.onTap, required this.title, required this.icon});
+@immutable
+final class DrawerListTile extends StatelessWidget {
+  const DrawerListTile({
+    super.key,
+    this.onTap,
+    this.title,
+    this.icon,
+  });
+  final VoidCallback? onTap;
+  final String? title;
+  final IconData? icon;
 
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: Icon(
         icon,
-        color: Colors.white,
+        color: AppColors().white,
       ),
       title: Text(
-        title,
-        style: context.textTheme.bodyMedium?.copyWith(color: Colors.white),
+        title!,
+        style: context.textTheme.bodyMedium?.copyWith(
+          color: AppColors().white,
+        ),
       ),
       onTap: onTap,
     );
