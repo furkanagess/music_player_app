@@ -1,12 +1,12 @@
 name: music_player_app
 description: A new Flutter project.
 
-publish_to: 'none' 
+publish_to: "none"
 
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.0.0 <4.0.0"
 
 dependencies:
   flutter:
@@ -23,11 +23,8 @@ dev_dependencies:
   very_good_analysis: ^5.0.0+1
 
 flutter:
-
   uses-material-design: true
 
-
   assets:
-    - assets/img/
+    - assets/png/
     - assets/audio/
-
