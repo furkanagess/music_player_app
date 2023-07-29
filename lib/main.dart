@@ -16,12 +16,12 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: AppStrings.appName,
-      home: const MusicAppHomeView(),
+      home: const HomeView(),
       routes: {
         NavigationConstants.premium: (context) => const PremiumPageView(),
         NavigationConstants.settings: (context) => const SettingsPageView(),
         NavigationConstants.detail: (context) => const MusicDetailView(),
-        NavigationConstants.home: (context) => const MusicAppHomeView(),
+        NavigationConstants.home: (context) => const HomeView(),
       },
     );
   }
