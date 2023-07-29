@@ -19,10 +19,10 @@ class GradientElevatedButton extends StatelessWidget {
         decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             gradient: LinearGradient(colors: [
-              MusicAppColors().purple,
-              MusicAppColors().pink,
-              MusicAppColors().orange,
-              MusicAppColors().yellow,
+              ColorConstants().purple,
+              ColorConstants().pink,
+              ColorConstants().orange,
+              ColorConstants().yellow,
             ])),
         child: Center(
           child: Text(

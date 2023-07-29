@@ -67,7 +67,7 @@ class PremiumPackageContainer extends StatelessWidget {
                   child: Center(
                     child: Text(
                       header!,
-                      style: context.textTheme.titleMedium?.copyWith(color: MusicAppColors().white),
+                      style: context.textTheme.titleMedium?.copyWith(color: ColorConstants().white),
                     ),
                   ),
                 )
@@ -81,13 +81,13 @@ class PremiumPackageContainer extends StatelessWidget {
                 Text(
                   bodyText1!,
                   style: context.textTheme.bodyMedium?.copyWith(
-                    color: MusicAppColors().white,
+                    color: ColorConstants().white,
                   ),
                 ),
                 Text(
                   bodyText2!,
                   style: context.textTheme.bodyMedium?.copyWith(
-                    color: MusicAppColors().white,
+                    color: ColorConstants().white,
                   ),
                 ),
                 SizedBox(
@@ -96,7 +96,7 @@ class PremiumPackageContainer extends StatelessWidget {
                 Text(
                   subText1!,
                   style: context.textTheme.titleLarge?.copyWith(
-                    color: MusicAppColors().white,
+                    color: ColorConstants().white,
                   ),
                 ),
                 SizedBox(
@@ -105,7 +105,7 @@ class PremiumPackageContainer extends StatelessWidget {
                 Text(
                   subText2!,
                   style: context.textTheme.bodyMedium?.copyWith(
-                    color: MusicAppColors().white,
+                    color: ColorConstants().white,
                   ),
                 ),
               ],

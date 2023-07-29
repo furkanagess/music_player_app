@@ -22,8 +22,8 @@ class NoImageTwoIconListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      iconColor: MusicAppColors().white,
-      textColor: MusicAppColors().white,
+      iconColor: ColorConstants().white,
+      textColor: ColorConstants().white,
       title: Text(
         title,
       ),

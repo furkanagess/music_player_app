@@ -28,7 +28,7 @@ final class DownloadListtie extends StatelessWidget {
       trailing: InkWell(
         onTap: tapDownload,
         child: CircleAvatar(
-          backgroundColor: MusicAppColors().purple,
+          backgroundColor: ColorConstants().purple,
           child: const Icon(
             Icons.download,
           ),
