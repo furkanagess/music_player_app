@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/feature/view/home/home_view.dart';
-import 'package:music_player_app/product/constants/app_strings.dart';
+import 'package:music_player_app/product/constants/appConstants/app_strings.dart';
 
 class HomeViewModel extends ChangeNotifier {
   int current = 0;
