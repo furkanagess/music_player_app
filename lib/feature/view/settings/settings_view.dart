@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
-import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
-import 'package:music_player_app/musicApp/product/widgets/settings_listtile.dart';
+import 'package:music_player_app/product/constants/color_constants.dart';
+import 'package:music_player_app/product/extension/contex_extension.dart';
+import 'package:music_player_app/product/widgets/settings_listtile.dart';
 
 class SettingsPageView extends StatelessWidget {
   const SettingsPageView({super.key});

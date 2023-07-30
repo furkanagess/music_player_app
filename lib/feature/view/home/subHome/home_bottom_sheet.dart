@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/feature/view/home/home_view.dart';
-import 'package:music_player_app/musicApp/product/constants/app_constants.dart';
-import 'package:music_player_app/musicApp/product/constants/app_strings.dart';
-import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
-import 'package:music_player_app/musicApp/product/constants/navigation_constants.dart';
-import 'package:music_player_app/musicApp/product/constants/png_constants.dart';
-import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
-import 'package:music_player_app/musicApp/product/widgets/gradient_button.dart';
+import 'package:music_player_app/feature/view/home/home_view.dart';
+import 'package:music_player_app/product/constants/app_constants.dart';
+import 'package:music_player_app/product/constants/app_strings.dart';
+import 'package:music_player_app/product/constants/color_constants.dart';
+import 'package:music_player_app/product/constants/navigation_constants.dart';
+import 'package:music_player_app/product/constants/png_constants.dart';
+import 'package:music_player_app/product/extension/contex_extension.dart';
+import 'package:music_player_app/product/widgets/gradient_button.dart';
 
 final class HomeBottomSheet extends ChangeNotifier {
   Future<dynamic> musicControllBottomSheet(BuildContext context) {

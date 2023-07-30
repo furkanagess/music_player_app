@@ -1,9 +1,9 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/product/constants/app_strings.dart';
-import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
-import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
-import 'package:music_player_app/musicApp/product/widgets/without_image_listtile.dart';
+import 'package:music_player_app/product/constants/app_strings.dart';
+import 'package:music_player_app/product/constants/color_constants.dart';
+import 'package:music_player_app/product/extension/contex_extension.dart';
+import 'package:music_player_app/product/widgets/without_image_listtile.dart';
 
 class MusicDetailView extends StatefulWidget {
   const MusicDetailView({super.key});

@@ -1,17 +1,17 @@
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/feature/view/home/subHome/home_bottom_sheet.dart';
-import 'package:music_player_app/musicApp/feature/viewModel/home/home_view_model.dart';
-import 'package:music_player_app/musicApp/product/constants/app_constants.dart';
-import 'package:music_player_app/musicApp/product/constants/app_strings.dart';
-import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
-import 'package:music_player_app/musicApp/product/constants/navigation_constants.dart';
-import 'package:music_player_app/musicApp/product/constants/png_constants.dart';
-import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
-import 'package:music_player_app/musicApp/product/widgets/clickable_music_row.dart';
-import 'package:music_player_app/musicApp/product/widgets/download_listtile.dart';
-import 'package:music_player_app/musicApp/product/widgets/drawer_listtile.dart';
-import 'package:music_player_app/musicApp/product/widgets/music_listtile.dart';
+import 'package:music_player_app/feature/view/home/subHome/home_bottom_sheet.dart';
+import 'package:music_player_app/feature/viewModel/home/home_view_model.dart';
+import 'package:music_player_app/product/constants/app_constants.dart';
+import 'package:music_player_app/product/constants/app_strings.dart';
+import 'package:music_player_app/product/constants/color_constants.dart';
+import 'package:music_player_app/product/constants/navigation_constants.dart';
+import 'package:music_player_app/product/constants/png_constants.dart';
+import 'package:music_player_app/product/extension/contex_extension.dart';
+import 'package:music_player_app/product/widgets/clickable_music_row.dart';
+import 'package:music_player_app/product/widgets/download_listtile.dart';
+import 'package:music_player_app/product/widgets/drawer_listtile.dart';
+import 'package:music_player_app/product/widgets/music_listtile.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({super.key});
@@ -22,6 +22,7 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
   HomeViewModel viewModel = HomeViewModel();
+  HomeBottomSheet homeBottomSheet = HomeBottomSheet();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,7 +35,7 @@ class _HomeViewState extends State<HomeView> {
             searchRow(context),
             headerRow(context),
             chipListview(context),
-            adMob(context),
+            adMob(context, homeBottomSheet),
             viewModel.homeBody[viewModel.current],
           ],
         ),
@@ -60,8 +61,7 @@ class _HomeViewState extends State<HomeView> {
     );
   }
 
-  Widget adMob(BuildContext context) {
-    final homeBottomSheet = HomeBottomSheet();
+  Widget adMob(BuildContext context, HomeBottomSheet homeBottomSheet) {
     return Padding(
       padding: context.paddingLow,
       child: InkWell(

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/product/constants/color_constants.dart';
-import 'package:music_player_app/musicApp/product/extension/contex_extension.dart';
+import 'package:music_player_app/product/constants/color_constants.dart';
+import 'package:music_player_app/product/extension/contex_extension.dart';
 
 @immutable
 final class CustomSettingsListtile extends StatelessWidget {

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:music_player_app/musicApp/feature/view/detail/music_detail_view.dart';
-import 'package:music_player_app/musicApp/feature/view/home/home_view.dart';
-import 'package:music_player_app/musicApp/feature/view/premium/premium_view.dart';
-import 'package:music_player_app/musicApp/feature/view/settings/settings_view.dart';
-import 'package:music_player_app/musicApp/product/constants/app_strings.dart';
-import 'package:music_player_app/musicApp/product/constants/navigation_constants.dart';
+import 'package:music_player_app/feature/view/detail/music_detail_view.dart';
+import 'package:music_player_app/feature/view/home/home_view.dart';
+import 'package:music_player_app/feature/view/premium/premium_view.dart';
+import 'package:music_player_app/feature/view/settings/settings_view.dart';
+import 'package:music_player_app/product/constants/app_strings.dart';
+import 'package:music_player_app/product/constants/navigation_constants.dart';
 
 void main() => runApp(const MyApp());
 
