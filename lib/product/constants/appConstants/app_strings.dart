@@ -1,15 +1,13 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 final class AppStrings {
   static const appName = 'Video Player App';
   static const closeAd = 'Reklamları Kapat';
   static const monthly = '19.99₺ Aylık';
   static const next = 'Devam et';
-  static const reachProperties = '''
-Tüm özelliklere eriş. Mükemmel bir Player 
-   deneyimine hazır ol!''';
-  static const reachProperties2 = '''
-Tüm özelliklere eriş. Mükemmel bir Player 
-  \n deneyimine hazır ol!  Tüm özelliklere eriş. 
-  \n deneyimine hazır ol!''';
+  static const reachProperties = 'Tüm özelliklere eriş. Mükemmel bir Player   deneyimine hazır ol!';
+  static const reachProperties2 =
+      'Tüm özelliklere eriş. Mükemmel bir Player  \n deneyimine hazır ol!  Tüm özelliklere eriş.  \n deneyimine hazır ol!';
   static const search = 'Search';
   static const musicTitle = 'Kalbin Yok Mu';
   static const musicSubTitle = 'Marc Aryan';
@@ -42,4 +40,9 @@ Tüm özelliklere eriş. Mükemmel bir Player
   static const musics = 'Musics';
   static const playlists = 'Playlists';
   static const downloads = 'Downloads';
+
+  // Music Detail
+  static const musicName = 'Music Name';
+  static const lyrics = 'Lyrics';
+  static const lyricsSample = "Just awaken shaken once again, so you know it's on";
 }
