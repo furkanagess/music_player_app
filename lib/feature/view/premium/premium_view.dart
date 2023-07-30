@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:music_player_app/product/constants/color_constants.dart';
+import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
 import 'package:music_player_app/product/extension/contex_extension.dart';
 import 'package:music_player_app/product/widgets/gradient_button.dart';
 import 'package:music_player_app/product/widgets/premium_package_container.dart';

@@ -1,12 +1,14 @@
+// ignore_for_file: lines_longer_than_80_chars
+
 import 'package:dotted_border/dotted_border.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player_app/feature/view/home/subHome/home_bottom_sheet.dart';
 import 'package:music_player_app/feature/viewModel/home/home_view_model.dart';
-import 'package:music_player_app/product/constants/app_constants.dart';
-import 'package:music_player_app/product/constants/app_strings.dart';
-import 'package:music_player_app/product/constants/color_constants.dart';
-import 'package:music_player_app/product/constants/navigation_constants.dart';
-import 'package:music_player_app/product/constants/png_constants.dart';
+import 'package:music_player_app/product/constants/appConstants/app_constants.dart';
+import 'package:music_player_app/product/constants/appConstants/app_strings.dart';
+import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
+import 'package:music_player_app/product/constants/appConstants/navigation_constants.dart';
+import 'package:music_player_app/product/constants/assetConstants/png_constants.dart';
 import 'package:music_player_app/product/extension/contex_extension.dart';
 import 'package:music_player_app/product/widgets/clickable_music_row.dart';
 import 'package:music_player_app/product/widgets/download_listtile.dart';
@@ -29,8 +31,8 @@ class _HomeViewState extends State<HomeView> {
       drawer: buildDrawer(),
       key: viewModel.scaffoldKey,
       backgroundColor: AppColors().background,
-      body: SafeArea(
-        child: ListView(
+      body: SingleChildScrollView(
+        child: Column(
           children: [
             searchRow(context),
             headerRow(context),
@@ -75,12 +77,13 @@ class _HomeViewState extends State<HomeView> {
             color: AppColors().transparentWhite,
           ),
           child: Center(
-              child: Text(
-            AppStrings.ads,
-            style: context.textTheme.headlineLarge?.copyWith(
-              color: AppColors().white,
+            child: Text(
+              AppStrings.ads,
+              style: context.textTheme.headlineLarge?.copyWith(
+                color: AppColors().white,
+              ),
             ),
-          )),
+          ),
         ),
       ),
     );
@@ -353,7 +356,7 @@ class CreatePlaylistContainer extends StatelessWidget {
           radius: const Radius.circular(10),
           color: AppColors().white,
           child: SizedBox(
-            width: context.dynamicWidth(0.42),
+            width: context.dynamicWidth(0.4),
             height: context.dynamicHeight(0.25),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

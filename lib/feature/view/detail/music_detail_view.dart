@@ -1,7 +1,9 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
-import 'package:music_player_app/product/constants/app_strings.dart';
-import 'package:music_player_app/product/constants/color_constants.dart';
+import 'package:music_player_app/product/constants/appConstants/app_strings.dart';
+import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
+import 'package:music_player_app/product/constants/appConstants/navigation_constants.dart';
+import 'package:music_player_app/product/constants/assetConstants/png_constants.dart';
 import 'package:music_player_app/product/extension/contex_extension.dart';
 import 'package:music_player_app/product/widgets/without_image_listtile.dart';
 
@@ -62,7 +64,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
       appBar: getAppBar(),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16),
+          padding: context.paddingNormalHorizontal,
           child: Column(
             children: [
               musicImage(),
@@ -86,7 +88,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
       elevation: 0,
       leading: IconButton(
         onPressed: () {
-          Navigator.pushNamed(context, 'home');
+          Navigator.pushNamed(context, NavigationConstants.home);
         },
         icon: const Icon(
           Icons.keyboard_arrow_down,
@@ -101,7 +103,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         )
       ],
       centerTitle: true,
-      title: const Text('Albüm Adı'),
+      title: const Text(AppStrings.musicName),
     );
   }
 
@@ -113,18 +115,18 @@ class _MusicDetailViewState extends State<MusicDetailView> {
           color: AppColors().darkBlue,
           borderRadius: BorderRadius.circular(20),
         ),
-        height: 358,
-        width: 358,
+        height: context.dynamicHeight(0.5),
+        width: context.dynamicWidth(0.88),
         child: Padding(
-          padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
+          padding: context.paddingNormal,
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'Şarkı Sözü',
-                    style: context.textTheme.bodyMedium?.copyWith(
+                    AppStrings.lyrics,
+                    style: context.textTheme.titleLarge?.copyWith(
                       color: AppColors().white,
                     ),
                   ),
@@ -137,16 +139,26 @@ class _MusicDetailViewState extends State<MusicDetailView> {
                   )
                 ],
               ),
-              ListView.builder(
-                padding: const EdgeInsets.only(top: 16),
-                shrinkWrap: true,
-                itemCount: 7,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.only(top: 4),
-                  child: Text(
-                    "Just awaken shaken once again, so you know it's on",
-                    style: context.textTheme.bodyLarge?.copyWith(
-                      color: AppColors().white,
+              Expanded(
+                child: ListView.builder(
+                  padding: context.paddingLow,
+                  shrinkWrap: true,
+                  itemCount: 20,
+                  itemBuilder: (context, index) => Padding(
+                    padding: context.paddingLowVertical,
+                    child: Expanded(
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Text(
+                              AppStrings.lyricsSample,
+                              style: context.textTheme.bodyLarge?.copyWith(
+                                color: AppColors().white,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -281,11 +293,13 @@ class _MusicDetailViewState extends State<MusicDetailView> {
     return Container(
       height: 358,
       width: 358,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(
+          Radius.circular(20),
+        ),
         image: DecorationImage(
           image: AssetImage(
-            'assets/img/asset.png',
+            PNGConstants.instance.asset,
           ),
         ),
       ),

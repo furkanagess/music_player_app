@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/feature/view/home/home_view.dart';
-import 'package:music_player_app/product/constants/app_constants.dart';
-import 'package:music_player_app/product/constants/app_strings.dart';
-import 'package:music_player_app/product/constants/color_constants.dart';
-import 'package:music_player_app/product/constants/navigation_constants.dart';
-import 'package:music_player_app/product/constants/png_constants.dart';
+import 'package:music_player_app/product/constants/appConstants/app_constants.dart';
+import 'package:music_player_app/product/constants/appConstants/app_strings.dart';
+import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
+import 'package:music_player_app/product/constants/appConstants/navigation_constants.dart';
+import 'package:music_player_app/product/constants/assetConstants/png_constants.dart';
 import 'package:music_player_app/product/extension/contex_extension.dart';
 import 'package:music_player_app/product/widgets/gradient_button.dart';
 
@@ -137,12 +137,13 @@ final class HomeBottomSheet extends ChangeNotifier {
                   color: AppColors().transparentWhite,
                 ),
                 child: Center(
-                    child: Text(
-                  AppStrings.ads,
-                  style: context.textTheme.headlineLarge?.copyWith(
-                    color: AppColors().white,
+                  child: Text(
+                    AppStrings.ads,
+                    style: context.textTheme.headlineLarge?.copyWith(
+                      color: AppColors().white,
+                    ),
                   ),
-                )),
+                ),
               ),
             ),
           ),
