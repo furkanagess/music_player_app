@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_app/product/constants/appConstants/app_strings.dart';
+import 'package:music_player_app/product/constants/appConstants/navigation_constants.dart';
 import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
+import 'package:music_player_app/product/constants/assetConstants/png_constants.dart';
 import 'package:music_player_app/product/extension/contex_extension.dart';
 import 'package:music_player_app/product/widgets/gradient_button.dart';
 import 'package:music_player_app/product/widgets/premium_package_container.dart';
@@ -13,13 +16,12 @@ class PremiumPageView extends StatelessWidget {
       backgroundColor: AppColors().background,
       appBar: buildAppbar(context),
       body: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16),
+        padding: context.paddingLowHorizontal,
         child: Center(
           child: Column(
             children: [
-              headerImage(),
+              headerImage(context),
               SizedBox(height: context.dynamicHeight(0.01)),
-              bodyText(context),
               SizedBox(height: context.dynamicHeight(0.05)),
               packageTypesRow(context),
               SizedBox(height: context.dynamicHeight(0.05)),
@@ -39,27 +41,27 @@ class PremiumPageView extends StatelessWidget {
       elevation: 0,
       leading: IconButton(
         onPressed: () {
-          Navigator.pushNamed(context, 'home');
+          Navigator.pushNamed(context, NavigationConstants.home);
         },
         icon: const Icon(
           Icons.keyboard_arrow_down,
         ),
       ),
       centerTitle: true,
-      title: const Text('Premium'),
+      title: const Text(AppStrings.premium),
     );
   }
 
   GradientElevatedButton continueButton() {
     return GradientElevatedButton(
-      text: 'Devam et',
+      text: AppStrings.getPremium,
       onTap: () {},
     );
   }
 
   Text footerText(BuildContext context) {
     return Text(
-      'Tüm reklamları kaldır. Tüm özelliklere erişim sağla ve özgürce dinle. \n Tüm reklamları kaldır. Tüm özelliklere erişim sağla ve özgürce dinle. ',
+      AppStrings.removeAds,
       style: context.textTheme.bodySmall?.copyWith(
         color: AppColors().white,
       ),
@@ -71,30 +73,30 @@ class PremiumPageView extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         PremiumPackageContainer(
-          header: '1 Ay',
-          bodyText1: 'Sıradan Üyelik',
-          bodyText2: '',
+          header: AppStrings.oneMonth,
+          bodyText1: AppStrings.standartPackage,
+          bodyText2: AppStrings.empty,
           color1: AppColors().transparentWhite,
           color2: AppColors().transparentWhite,
           color3: AppColors().transparentWhite,
           color4: AppColors().transparentWhite,
           subColor: AppColors().transparentWhite,
-          subText1: '19.99₺',
-          subText2: 'Aylık',
+          subText1: AppStrings.standartPrice,
+          subText2: AppStrings.monthly,
           onTap: () {},
         ),
         SizedBox(width: context.dynamicWidth(0.05)),
         PremiumPackageContainer(
-          header: '1 Yıl',
-          bodyText1: '%50 Kazanç',
-          bodyText2: '119.99₺',
+          header: AppStrings.oneYear,
+          bodyText1: AppStrings.premiumProfit,
+          bodyText2: AppStrings.premiumPrice,
           color1: AppColors().purple,
           color2: AppColors().pink,
           color3: AppColors().orange,
           color4: AppColors().yellow,
           subColor: AppColors().transparentWhite,
-          subText1: '9.99₺',
-          subText2: 'Aylık',
+          subText1: AppStrings.monthlyPremium,
+          subText2: AppStrings.monthly,
           onTap: () {},
         ),
       ],
@@ -103,22 +105,22 @@ class PremiumPageView extends StatelessWidget {
 
   Text bodyText(BuildContext context) {
     return Text(
-      'Tüm reklamları kaldır. Tüm özelliklere \n erişim sağla ve özgürce dinle.',
+      AppStrings.removeAds,
       style: context.textTheme.bodyMedium?.copyWith(
         color: AppColors().white,
       ),
     );
   }
 
-  Container headerImage() {
+  Container headerImage(BuildContext context) {
     return Container(
-      height: 176,
-      width: 176,
-      decoration: const BoxDecoration(
-        borderRadius: BorderRadius.all(Radius.circular(20)),
+      height: context.dynamicHeight(0.3),
+      width: context.dynamicHeight(0.7),
+      decoration: BoxDecoration(
+        borderRadius: const BorderRadius.all(Radius.circular(20)),
         image: DecorationImage(
           image: AssetImage(
-            'assets/img/headphone.png',
+            PNGConstants.instance.headphone,
           ),
         ),
       ),

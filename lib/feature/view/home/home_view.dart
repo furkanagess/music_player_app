@@ -6,8 +6,8 @@ import 'package:music_player_app/feature/view/home/subHome/home_bottom_sheet.dar
 import 'package:music_player_app/feature/viewModel/home/home_view_model.dart';
 import 'package:music_player_app/product/constants/appConstants/app_constants.dart';
 import 'package:music_player_app/product/constants/appConstants/app_strings.dart';
-import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
 import 'package:music_player_app/product/constants/appConstants/navigation_constants.dart';
+import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
 import 'package:music_player_app/product/constants/assetConstants/png_constants.dart';
 import 'package:music_player_app/product/extension/contex_extension.dart';
 import 'package:music_player_app/product/widgets/clickable_music_row.dart';
@@ -29,12 +29,40 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       drawer: buildDrawer(),
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: AppColors().background,
+        elevation: 0,
+        title: Flexible(
+          child: Padding(
+            padding: context.paddingLow,
+            child: TextField(
+              decoration: InputDecoration(
+                hintText: AppStrings.search,
+                hintStyle: context.textTheme.titleMedium?.copyWith(
+                  color: AppColors().white,
+                ),
+                prefixIcon: Icon(
+                  Icons.search,
+                  color: AppColors().white,
+                ),
+                filled: true,
+                fillColor: AppColors().transparentWhite,
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
       key: viewModel.scaffoldKey,
       backgroundColor: AppColors().background,
       body: SingleChildScrollView(
         child: Column(
           children: [
-            searchRow(context),
+            //  searchRow(context),
             headerRow(context),
             chipListview(context),
             adMob(context, homeBottomSheet),
@@ -284,45 +312,51 @@ class PlaylistGridView extends StatelessWidget {
           ),
           itemBuilder: (context, index) => Column(
             children: [
-              InkWell(
-                onTap: () {
-                  Navigator.pushNamed(context, NavigationConstants.detail);
-                },
-                child: Container(
-                  width: context.dynamicWidth(0.42),
-                  height: context.dynamicHeight(0.25),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: const DecorationImage(
-                      image: NetworkImage(
-                        AppConstants.imgSource,
+              Expanded(
+                flex: 4,
+                child: InkWell(
+                  onTap: () {
+                    Navigator.pushNamed(context, NavigationConstants.detail);
+                  },
+                  child: Container(
+                    width: context.dynamicWidth(0.42),
+                    height: context.dynamicHeight(0.25),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: const DecorationImage(
+                        image: NetworkImage(
+                          AppConstants.imgSource,
+                        ),
+                        fit: BoxFit.cover,
                       ),
-                      fit: BoxFit.cover,
                     ),
                   ),
                 ),
               ),
-              ListTile(
-                onTap: () {
-                  Navigator.pushNamed(context, NavigationConstants.detail);
-                },
-                title: Text(
-                  AppStrings.musicTitle,
-                  style: TextStyle(
-                    color: AppColors().white,
+              Expanded(
+                flex: 2,
+                child: ListTile(
+                  onTap: () {
+                    Navigator.pushNamed(context, NavigationConstants.detail);
+                  },
+                  title: Text(
+                    AppStrings.musicTitle,
+                    style: TextStyle(
+                      color: AppColors().white,
+                    ),
                   ),
-                ),
-                subtitle: Text(
-                  AppStrings.musicSubTitle,
-                  style: TextStyle(
-                    color: AppColors().white,
+                  subtitle: Text(
+                    AppStrings.musicSubTitle,
+                    style: TextStyle(
+                      color: AppColors().white,
+                    ),
                   ),
-                ),
-                trailing: IconButton(
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.more_vert,
-                    color: AppColors().white,
+                  trailing: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.more_vert,
+                      color: AppColors().white,
+                    ),
                   ),
                 ),
               ),
@@ -357,7 +391,7 @@ class CreatePlaylistContainer extends StatelessWidget {
           color: AppColors().white,
           child: SizedBox(
             width: context.dynamicWidth(0.4),
-            height: context.dynamicHeight(0.25),
+            height: context.dynamicHeight(0.2),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

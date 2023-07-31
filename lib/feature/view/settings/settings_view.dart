@@ -19,7 +19,7 @@ class SettingsPageView extends StatelessWidget {
               generalSettingsContainer(),
               SizedBox(height: context.dynamicHeight(0.05)),
               helpSettingsText(context),
-              HelpSettingsContainer(),
+              helpSettingsContainer(),
             ],
           ),
         ),
@@ -27,7 +27,7 @@ class SettingsPageView extends StatelessWidget {
     );
   }
 
-  Container HelpSettingsContainer() {
+  Container helpSettingsContainer() {
     return Container(
       decoration: BoxDecoration(
         color: AppColors().darkBlue,

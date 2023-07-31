@@ -1,8 +1,8 @@
 import 'package:audioplayers/audioplayers.dart';
 import 'package:flutter/material.dart';
 import 'package:music_player_app/product/constants/appConstants/app_strings.dart';
-import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
 import 'package:music_player_app/product/constants/appConstants/navigation_constants.dart';
+import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
 import 'package:music_player_app/product/constants/assetConstants/png_constants.dart';
 import 'package:music_player_app/product/extension/contex_extension.dart';
 import 'package:music_player_app/product/widgets/without_image_listtile.dart';
@@ -185,7 +185,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
           },
         ),
         Padding(
-          padding: const EdgeInsets.only(left: 24, right: 24),
+          padding: context.paddingNormalHorizontal,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -291,8 +291,8 @@ class _MusicDetailViewState extends State<MusicDetailView> {
 
   Container musicImage() {
     return Container(
-      height: 358,
-      width: 358,
+      height: context.dynamicHeight(0.55),
+      width: context.dynamicWidth(0.9),
       decoration: BoxDecoration(
         borderRadius: const BorderRadius.all(
           Radius.circular(20),
