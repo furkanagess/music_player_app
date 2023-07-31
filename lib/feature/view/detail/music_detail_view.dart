@@ -110,60 +110,63 @@ class _MusicDetailViewState extends State<MusicDetailView> {
   InkWell musicLyrics(BuildContext context) {
     return InkWell(
       onTap: () {},
-      child: Container(
-        decoration: BoxDecoration(
-          color: AppColors().darkBlue,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        height: context.dynamicHeight(0.5),
-        width: context.dynamicWidth(0.88),
-        child: Padding(
-          padding: context.paddingNormal,
-          child: Column(
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    AppStrings.lyrics,
-                    style: context.textTheme.titleLarge?.copyWith(
-                      color: AppColors().white,
+      child: Padding(
+        padding: context.paddingNormalVertical,
+        child: Container(
+          decoration: BoxDecoration(
+            color: AppColors().darkBlue,
+            borderRadius: BorderRadius.circular(20),
+          ),
+          height: context.dynamicHeight(0.5),
+          width: context.dynamicWidth(0.88),
+          child: Padding(
+            padding: context.paddingNormal,
+            child: Column(
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      AppStrings.lyrics,
+                      style: context.textTheme.titleLarge?.copyWith(
+                        color: AppColors().white,
+                      ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: Icon(
-                      Icons.open_in_full,
-                      color: AppColors().white,
-                    ),
-                  )
-                ],
-              ),
-              Expanded(
-                child: ListView.builder(
-                  padding: context.paddingLow,
-                  shrinkWrap: true,
-                  itemCount: 20,
-                  itemBuilder: (context, index) => Padding(
-                    padding: context.paddingLowVertical,
-                    child: Expanded(
-                      child: SingleChildScrollView(
-                        child: Column(
-                          children: [
-                            Text(
-                              AppStrings.lyricsSample,
-                              style: context.textTheme.bodyLarge?.copyWith(
-                                color: AppColors().white,
+                    IconButton(
+                      onPressed: () {},
+                      icon: Icon(
+                        Icons.open_in_full,
+                        color: AppColors().white,
+                      ),
+                    )
+                  ],
+                ),
+                Expanded(
+                  child: ListView.builder(
+                    padding: context.paddingLow,
+                    shrinkWrap: true,
+                    itemCount: 20,
+                    itemBuilder: (context, index) => Padding(
+                      padding: context.paddingLowVertical,
+                      child: Expanded(
+                        child: SingleChildScrollView(
+                          child: Column(
+                            children: [
+                              Text(
+                                AppStrings.lyricsSample,
+                                style: context.textTheme.bodyLarge?.copyWith(
+                                  color: AppColors().white,
+                                ),
                               ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
