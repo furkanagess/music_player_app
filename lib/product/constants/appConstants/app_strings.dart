@@ -1,11 +1,12 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 final class AppStrings {
+  static const empty = '';
   static const appName = 'Video Player App';
   static const closeAd = 'Reklamları Kapat';
-  static const monthly = '19.99₺ Aylık';
+
   static const next = 'Devam et';
-  static const reachProperties = 'Tüm özelliklere eriş. Mükemmel bir Player   deneyimine hazır ol!';
+  static const reachProperties = 'Tüm özelliklere eriş. Mükemmel bir Player \n          deneyimine hazır ol!';
   static const reachProperties2 =
       'Tüm özelliklere eriş. Mükemmel bir Player  \n deneyimine hazır ol!  Tüm özelliklere eriş.  \n deneyimine hazır ol!';
   static const search = 'Search';
@@ -45,4 +46,18 @@ final class AppStrings {
   static const musicName = 'Music Name';
   static const lyrics = 'Lyrics';
   static const lyricsSample = "Just awaken shaken once again, so you know it's on";
+
+  // Premium
+  static const premium = 'Premium';
+  static const removeAds = 'Remove all ads. Access all features and listen freely.';
+  static const getPremium = 'Get Premium';
+  static const oneMonth = '1 Month';
+  static const oneYear = '1 Year';
+  static const standartPackage = 'Standart Package';
+  static const premiumPackage = 'Premium Package';
+  static const standartPrice = '19.99₺';
+  static const premiumPrice = '119.99₺';
+  static const monthly = 'Monthly';
+  static const monthlyPremium = '9.99₺';
+  static const premiumProfit = '%50 Profit';
 }
