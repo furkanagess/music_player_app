@@ -60,4 +60,20 @@ final class AppStrings {
   static const monthly = 'Monthly';
   static const monthlyPremium = '9.99₺';
   static const premiumProfit = '%50 Profit';
+
+  // Settings
+  static const help = 'Help';
+  static const feedback = 'Feedback';
+  static const feedbackDesc = 'Report bugs and tell us what needs improvement';
+  static const rate = 'Rate App';
+  static const rateDesc = 'Do you like this app? Please rate us.';
+  static const lockScreen = 'Play on lock screen';
+  static const lockScreenDesc = 'Show now playing on lock screen';
+  static const terms = 'Terms and Conditions';
+  static const version = 'Version';
+  static const versionDesc = '2.13.23.1';
+
+  static const general = 'General';
+  static const language = 'Language';
+  static const languageDesc = 'Change Language';
 }
