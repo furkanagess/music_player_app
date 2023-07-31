@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:music_player_app/product/constants/appConstants/app_strings.dart';
+import 'package:music_player_app/product/constants/appConstants/navigation_constants.dart';
 import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
 import 'package:music_player_app/product/extension/contex_extension.dart';
 import 'package:music_player_app/product/widgets/settings_listtile.dart';
@@ -13,55 +15,61 @@ class SettingsPageView extends StatelessWidget {
       appBar: buildAppbar(context),
       body: SingleChildScrollView(
         child: Center(
-          child: Column(
-            children: [
-              generalSettingsText(context),
-              generalSettingsContainer(),
-              SizedBox(height: context.dynamicHeight(0.05)),
-              helpSettingsText(context),
-              helpSettingsContainer(),
-            ],
+          child: Padding(
+            padding: context.paddingNormal,
+            child: Column(
+              children: [
+                generalSettingsText(context),
+                generalSettingsContainer(context),
+                SizedBox(height: context.dynamicHeight(0.05)),
+                helpSettingsText(context),
+                helpSettingsContainer(context),
+              ],
+            ),
           ),
         ),
       ),
     );
   }
 
-  Container helpSettingsContainer() {
+  Container helpSettingsContainer(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: AppColors().darkBlue,
         borderRadius: BorderRadius.circular(20),
       ),
-      height: 358,
-      width: 358,
+      height: context.dynamicHeight(0.3),
       child: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
+        padding: context.paddingLow,
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
-            CustomSettingsListtile(
-              onTap: () {},
-              title: 'Geri bildirim',
-              subTitle: 'Hataları bildirin ve bize nelerin iyileştirilmesi gerektiğini söyleyin',
+            Expanded(
+              child: CustomSettingsListtile(
+                onTap: () {},
+                title: AppStrings.feedback,
+                subTitle: AppStrings.feedbackDesc,
+              ),
             ),
-            CustomSettingsListtile(
-              onTap: () {},
-              title: 'Bize oy ver',
-              subTitle: 'Bu uygulayı beğendiniz mi? Lütfen bize puan verin.',
+            Expanded(
+              child: CustomSettingsListtile(
+                onTap: () {},
+                title: AppStrings.rate,
+                subTitle: AppStrings.rateDesc,
+              ),
             ),
-            CustomSettingsListtile(
-              onTap: () {},
-              title: 'Kilit ekranında oynatma',
-              subTitle: 'Kilit ekranında şimdi çalanı göster',
+            Expanded(
+              child: CustomSettingsListtile(
+                onTap: () {},
+                title: AppStrings.terms,
+              ),
             ),
-            CustomSettingsListtile(
-              onTap: () {},
-              title: 'Kullanım koşulları',
-            ),
-            CustomSettingsListtile(
-              onTap: () {},
-              title: 'Versiyon',
-              subTitle: '2.13.1.113',
+            Expanded(
+              child: CustomSettingsListtile(
+                onTap: () {},
+                title: AppStrings.version,
+                subTitle: AppStrings.versionDesc,
+              ),
             ),
           ],
         ),
@@ -75,14 +83,14 @@ class SettingsPageView extends StatelessWidget {
       elevation: 0,
       leading: IconButton(
         onPressed: () {
-          Navigator.pushNamed(context, 'home');
+          Navigator.pushNamed(context, NavigationConstants.home);
         },
         icon: const Icon(
           Icons.arrow_back_ios_new,
         ),
       ),
       centerTitle: true,
-      title: const Text('Premium'),
+      title: const Text(AppStrings.premium),
     );
   }
 
@@ -91,9 +99,9 @@ class SettingsPageView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 30, bottom: 8),
+          padding: context.paddingLow,
           child: Text(
-            'Yardım',
+            AppStrings.help,
             style: context.textTheme.bodyLarge?.copyWith(
               color: AppColors().white,
             ),
@@ -108,9 +116,9 @@ class SettingsPageView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
-          padding: const EdgeInsets.only(left: 30, bottom: 8),
+          padding: context.paddingLow,
           child: Text(
-            'Genel',
+            AppStrings.general,
             style: context.textTheme.bodyLarge?.copyWith(
               color: AppColors().white,
             ),
@@ -120,45 +128,39 @@ class SettingsPageView extends StatelessWidget {
     );
   }
 
-  Container generalSettingsContainer() {
+  Container generalSettingsContainer(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: AppColors().darkBlue,
         borderRadius: BorderRadius.circular(20),
       ),
-      height: 358,
-      width: 358,
+      height: context.dynamicHeight(0.35),
       child: Padding(
-        padding: const EdgeInsets.only(left: 16, right: 16, top: 8),
+        padding: context.paddingLow,
         child: Column(
           children: [
-            CustomSettingsListtile(
-              onTap: () {},
-              title: 'Premiuma Geçin',
-              icon: Icons.diamond,
+            Expanded(
+              child: CustomSettingsListtile(
+                onTap: () {},
+                title: AppStrings.getPremium,
+                icon: Icons.diamond,
+              ),
             ),
-            CustomSettingsListtile(
-              onTap: () {},
-              title: 'Müzik Tara',
+            Expanded(
+              child: CustomSettingsListtile(
+                onTap: () {},
+                title: AppStrings.lockScreen,
+                subTitle: AppStrings.lockScreenDesc,
+                icon: Icons.toggle_on,
+                onPressed: () {},
+              ),
             ),
-            CustomSettingsListtile(
-              onTap: () {},
-              title: 'Kilit ekranında oynatma',
-              subTitle: 'Kilit ekranında şimdi çalanı göster',
-              icon: Icons.toggle_on,
-              onPressed: () {},
-            ),
-            CustomSettingsListtile(
-              onTap: () {},
-              title: 'Çıkarıldığında duraksat',
-              subTitle: 'Kulaklık çıkarıldığında kayıttan yürütmeyi duraksatmak için açın',
-              icon: Icons.toggle_on,
-              onPressed: () {},
-            ),
-            CustomSettingsListtile(
-              onTap: () {},
-              title: 'Dil',
-              subTitle: 'Sistem varsayılan',
+            Expanded(
+              child: CustomSettingsListtile(
+                onTap: () {},
+                title: AppStrings.language,
+                subTitle: AppStrings.languageDesc,
+              ),
             ),
           ],
         ),
