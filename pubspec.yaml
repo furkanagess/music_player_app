@@ -11,9 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  dotted_border: ^2.0.0+3
   audioplayers: ^4.1.0
-
+  dotted_border: ^2.0.0+3
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
