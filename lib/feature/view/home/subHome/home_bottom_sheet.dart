@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:music_player_app/feature/view/home/home_view.dart';
 import 'package:music_player_app/product/constants/appConstants/app_constants.dart';
 import 'package:music_player_app/product/constants/appConstants/app_strings.dart';
-import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
 import 'package:music_player_app/product/constants/appConstants/navigation_constants.dart';
+import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
 import 'package:music_player_app/product/constants/assetConstants/png_constants.dart';
 import 'package:music_player_app/product/extension/contex_extension.dart';
 import 'package:music_player_app/product/widgets/gradient_button.dart';
@@ -11,7 +11,11 @@ import 'package:music_player_app/product/widgets/gradient_button.dart';
 final class HomeBottomSheet extends ChangeNotifier {
   Future<dynamic> musicControllBottomSheet(BuildContext context) {
     return showModalBottomSheet(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.all(
+          context.normalRadius,
+        ),
+      ),
       backgroundColor: AppColors().darkBlue,
       context: context,
       builder: (context) => Column(
@@ -30,22 +34,13 @@ final class HomeBottomSheet extends ChangeNotifier {
             trailing: Wrap(
               spacing: 8,
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.skip_previous),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.pause),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.skip_next),
-                ),
+                skipPrevButton(),
+                pauseButton(),
+                skipNextButton(),
               ],
             ),
             leading: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.all(context.lowRadius),
               child: Image.network(
                 AppConstants.imgSource,
                 height: context.dynamicHeight(0.15),
@@ -60,7 +55,7 @@ final class HomeBottomSheet extends ChangeNotifier {
           Container(
             decoration: BoxDecoration(
               color: AppColors().transparentWhite,
-              borderRadius: BorderRadius.circular(20),
+              borderRadius: BorderRadius.all(context.normalRadius),
             ),
             width: context.dynamicWidth(0.9),
             height: context.dynamicHeight(0.4),
@@ -84,12 +79,33 @@ final class HomeBottomSheet extends ChangeNotifier {
     );
   }
 
+  IconButton skipNextButton() {
+    return IconButton(
+      onPressed: () {},
+      icon: const Icon(Icons.skip_next),
+    );
+  }
+
+  IconButton pauseButton() {
+    return IconButton(
+      onPressed: () {},
+      icon: const Icon(Icons.pause),
+    );
+  }
+
+  IconButton skipPrevButton() {
+    return IconButton(
+      onPressed: () {},
+      icon: const Icon(Icons.skip_previous),
+    );
+  }
+
   Future<dynamic> downloadBottomSheet(BuildContext context) {
     return showModalBottomSheet(
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
+          topLeft: context.normalRadius,
+          topRight: context.normalRadius,
         ),
       ),
       backgroundColor: AppColors().darkBlue,
@@ -97,7 +113,7 @@ final class HomeBottomSheet extends ChangeNotifier {
       builder: (context) => Column(
         children: [
           ListTile(
-            contentPadding: const EdgeInsets.all(8),
+            contentPadding: context.paddingLow,
             dense: false,
             iconColor: AppColors().white,
             textColor: AppColors().white,
@@ -107,14 +123,19 @@ final class HomeBottomSheet extends ChangeNotifier {
             subtitle: const Text(
               AppStrings.musicSubTitle,
             ),
-            trailing: CircleAvatar(
-              backgroundColor: AppColors().purple,
-              child: const Icon(
-                Icons.close,
+            trailing: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: CircleAvatar(
+                backgroundColor: AppColors().purple,
+                child: const Icon(
+                  Icons.close,
+                ),
               ),
             ),
             leading: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.all(context.lowRadius),
               child: Image.network(
                 AppConstants.imgSource,
                 height: context.dynamicHeight(0.15),
@@ -133,7 +154,7 @@ final class HomeBottomSheet extends ChangeNotifier {
               child: Container(
                 height: context.dynamicHeight(0.1),
                 decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(20),
+                  borderRadius: BorderRadius.all(context.normalRadius),
                   color: AppColors().transparentWhite,
                 ),
                 child: Center(
@@ -158,7 +179,7 @@ final class HomeBottomSheet extends ChangeNotifier {
       builder: (context) {
         return AlertDialog(
           shape: BeveledRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
+            borderRadius: BorderRadius.all(context.lowRadius),
           ),
           elevation: 3,
           backgroundColor: AppColors().darkBlue,
@@ -228,7 +249,7 @@ final class HomeBottomSheet extends ChangeNotifier {
                 height: context.dynamicHeight(0.03),
               ),
               GradientElevatedButton(
-                text: AppStrings.next,
+                text: AppStrings.getPremium,
                 onTap: () {
                   Navigator.pushNamed(context, NavigationConstants.premium);
                 },
@@ -259,10 +280,10 @@ final class HomeBottomSheet extends ChangeNotifier {
 
   Future<dynamic> createPlaylistBottomSheet(BuildContext context) {
     return showModalBottomSheet(
-      shape: const RoundedRectangleBorder(
+      shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.only(
-          topLeft: Radius.circular(20),
-          topRight: Radius.circular(20),
+          topLeft: context.normalRadius,
+          topRight: context.normalRadius,
         ),
       ),
       backgroundColor: AppColors().darkBlue,

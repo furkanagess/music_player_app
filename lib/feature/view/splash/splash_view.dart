@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:music_player_app/product/extension/contex_extension.dart';
 import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
+import 'package:music_player_app/product/constants/assetConstants/png_constants.dart';
+import 'package:music_player_app/product/extension/contex_extension.dart';
 
 class MusicAppMusicAppSplashView extends StatelessWidget {
   const MusicAppMusicAppSplashView({super.key});
@@ -22,9 +23,9 @@ class MusicAppMusicAppSplashView extends StatelessWidget {
           ),
         ),
         child: Center(
-          child: Container(
+          child: SizedBox(
             width: context.dynamicWidth(0.3),
-            child: Image.asset("assets/img/fio_logo.png"),
+            child: Image.asset(PNGConstants.instance.fioLogo),
           ),
         ),
       ),

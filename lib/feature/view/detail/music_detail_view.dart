@@ -115,10 +115,10 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         child: Container(
           decoration: BoxDecoration(
             color: AppColors().darkBlue,
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.all(context.normalRadius),
           ),
           height: context.dynamicHeight(0.5),
-          width: context.dynamicWidth(0.88),
+          width: context.dynamicWidth(0.9),
           child: Padding(
             padding: context.paddingNormal,
             child: Column(
@@ -297,9 +297,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
       height: context.dynamicHeight(0.55),
       width: context.dynamicWidth(0.9),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(20),
-        ),
+        borderRadius: BorderRadius.all(context.normalRadius),
         image: DecorationImage(
           image: AssetImage(
             PNGConstants.instance.asset,

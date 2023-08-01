@@ -20,58 +20,13 @@ class SettingsPageView extends StatelessWidget {
             child: Column(
               children: [
                 generalSettingsText(context),
-                generalSettingsContainer(context),
+                const GeneralSettingsArea(),
                 SizedBox(height: context.dynamicHeight(0.05)),
                 helpSettingsText(context),
-                helpSettingsContainer(context),
+                const HelpSettingsArea(),
               ],
             ),
           ),
-        ),
-      ),
-    );
-  }
-
-  Container helpSettingsContainer(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        color: AppColors().darkBlue,
-        borderRadius: BorderRadius.circular(20),
-      ),
-      height: context.dynamicHeight(0.3),
-      child: Padding(
-        padding: context.paddingLow,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            Expanded(
-              child: CustomSettingsListtile(
-                onTap: () {},
-                title: AppStrings.feedback,
-                subTitle: AppStrings.feedbackDesc,
-              ),
-            ),
-            Expanded(
-              child: CustomSettingsListtile(
-                onTap: () {},
-                title: AppStrings.rate,
-                subTitle: AppStrings.rateDesc,
-              ),
-            ),
-            Expanded(
-              child: CustomSettingsListtile(
-                onTap: () {},
-                title: AppStrings.terms,
-              ),
-            ),
-            Expanded(
-              child: CustomSettingsListtile(
-                onTap: () {},
-                title: AppStrings.version,
-                subTitle: AppStrings.versionDesc,
-              ),
-            ),
-          ],
         ),
       ),
     );
@@ -127,44 +82,131 @@ class SettingsPageView extends StatelessWidget {
       ],
     );
   }
+}
 
-  Container generalSettingsContainer(BuildContext context) {
+class GeneralSettingsArea extends StatelessWidget {
+  const GeneralSettingsArea({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
         color: AppColors().darkBlue,
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.all(context.normalRadius),
       ),
-      height: context.dynamicHeight(0.35),
+      height: context.dynamicHeight(0.4),
       child: Padding(
         padding: context.paddingLow,
         child: Column(
           children: [
             Expanded(
-              child: CustomSettingsListtile(
-                onTap: () {},
-                title: AppStrings.getPremium,
-                icon: Icons.diamond,
-              ),
+              child: premiumListtile(),
             ),
             Expanded(
-              child: CustomSettingsListtile(
-                onTap: () {},
-                title: AppStrings.lockScreen,
-                subTitle: AppStrings.lockScreenDesc,
-                icon: Icons.toggle_on,
-                onPressed: () {},
-              ),
+              child: lockScreenListtile(),
             ),
             Expanded(
-              child: CustomSettingsListtile(
-                onTap: () {},
-                title: AppStrings.language,
-                subTitle: AppStrings.languageDesc,
-              ),
+              child: languageListtile(),
             ),
           ],
         ),
       ),
+    );
+  }
+
+  CustomSettingsListtile languageListtile() {
+    return CustomSettingsListtile(
+      onTap: () {},
+      title: AppStrings.language,
+      subTitle: AppStrings.languageDesc,
+    );
+  }
+
+  CustomSettingsListtile lockScreenListtile() {
+    return CustomSettingsListtile(
+      onTap: () {},
+      title: AppStrings.lockScreen,
+      subTitle: AppStrings.lockScreenDesc,
+      icon: Icons.toggle_on,
+      onPressed: () {},
+    );
+  }
+
+  CustomSettingsListtile premiumListtile() {
+    return CustomSettingsListtile(
+      onTap: () {},
+      title: AppStrings.getPremium,
+      icon: Icons.diamond,
+    );
+  }
+}
+
+class HelpSettingsArea extends StatelessWidget {
+  const HelpSettingsArea({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        color: AppColors().darkBlue,
+        borderRadius: BorderRadius.all(context.normalRadius),
+      ),
+      height: context.dynamicHeight(0.4),
+      child: Padding(
+        padding: context.paddingLow,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Expanded(
+              child: feedbackListtile(),
+            ),
+            Expanded(
+              child: rateListtile(),
+            ),
+            Expanded(
+              child: termsListtile(),
+            ),
+            Expanded(
+              child: versionListtile(),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  CustomSettingsListtile versionListtile() {
+    return CustomSettingsListtile(
+      onTap: () {},
+      title: AppStrings.version,
+      subTitle: AppStrings.versionDesc,
+    );
+  }
+
+  CustomSettingsListtile termsListtile() {
+    return CustomSettingsListtile(
+      onTap: () {},
+      title: AppStrings.terms,
+    );
+  }
+
+  CustomSettingsListtile rateListtile() {
+    return CustomSettingsListtile(
+      onTap: () {},
+      title: AppStrings.rate,
+      subTitle: AppStrings.rateDesc,
+    );
+  }
+
+  CustomSettingsListtile feedbackListtile() {
+    return CustomSettingsListtile(
+      onTap: () {},
+      title: AppStrings.feedback,
+      subTitle: AppStrings.feedbackDesc,
     );
   }
 }

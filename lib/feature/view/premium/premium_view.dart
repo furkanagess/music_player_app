@@ -20,14 +20,20 @@ class PremiumPageView extends StatelessWidget {
         child: Center(
           child: Column(
             children: [
-              headerImage(context),
-              SizedBox(height: context.dynamicHeight(0.01)),
-              SizedBox(height: context.dynamicHeight(0.05)),
-              packageTypesRow(context),
-              SizedBox(height: context.dynamicHeight(0.05)),
-              continueButton(),
-              SizedBox(height: context.dynamicHeight(0.02)),
-              footerText(context),
+              Expanded(
+                flex: 5,
+                child: headerImage(context),
+              ),
+              Expanded(
+                flex: 6,
+                child: packageTypesRow(context),
+              ),
+              Expanded(
+                child: continueButton(),
+              ),
+              Expanded(
+                child: footerText(context),
+              ),
             ],
           ),
         ),
@@ -59,11 +65,14 @@ class PremiumPageView extends StatelessWidget {
     );
   }
 
-  Text footerText(BuildContext context) {
-    return Text(
-      AppStrings.removeAds,
-      style: context.textTheme.bodySmall?.copyWith(
-        color: AppColors().white,
+  Padding footerText(BuildContext context) {
+    return Padding(
+      padding: context.paddingLow,
+      child: Text(
+        AppStrings.removeAds,
+        style: context.textTheme.bodySmall?.copyWith(
+          color: AppColors().white,
+        ),
       ),
     );
   }
@@ -117,7 +126,7 @@ class PremiumPageView extends StatelessWidget {
       height: context.dynamicHeight(0.3),
       width: context.dynamicHeight(0.7),
       decoration: BoxDecoration(
-        borderRadius: const BorderRadius.all(Radius.circular(20)),
+        borderRadius: BorderRadius.all(context.normalRadius),
         image: DecorationImage(
           image: AssetImage(
             PNGConstants.instance.headphone,

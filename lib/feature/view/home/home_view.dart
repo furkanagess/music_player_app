@@ -50,7 +50,7 @@ class _HomeViewState extends State<HomeView> {
                 fillColor: AppColors().transparentWhite,
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.all(context.lowRadius),
                 ),
               ),
             ),
@@ -101,7 +101,7 @@ class _HomeViewState extends State<HomeView> {
         child: Container(
           height: context.dynamicHeight(0.1),
           decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
+            borderRadius: BorderRadius.all(context.normalRadius),
             color: AppColors().transparentWhite,
           ),
           child: Center(
@@ -124,7 +124,7 @@ class _HomeViewState extends State<HomeView> {
           padding: context.paddingLowHorizontal,
           child: Card(
             shape: BeveledRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.all(context.lowRadius),
             ),
             color: AppColors().transparentWhite,
             child: IconButton(
@@ -155,7 +155,7 @@ class _HomeViewState extends State<HomeView> {
                 fillColor: AppColors().transparentWhite,
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.all(context.lowRadius),
                 ),
               ),
             ),
@@ -322,7 +322,7 @@ class PlaylistGridView extends StatelessWidget {
                     width: context.dynamicWidth(0.42),
                     height: context.dynamicHeight(0.25),
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
+                      borderRadius: BorderRadius.all(context.lowRadius),
                       image: const DecorationImage(
                         image: NetworkImage(
                           AppConstants.imgSource,
@@ -387,7 +387,7 @@ class CreatePlaylistContainer extends StatelessWidget {
           dashPattern: const [
             10.0,
           ],
-          radius: const Radius.circular(10),
+          radius: context.lowRadius,
           color: AppColors().white,
           child: SizedBox(
             width: context.dynamicWidth(0.4),
