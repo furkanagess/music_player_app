@@ -21,12 +21,12 @@ final class GradientElevatedButton extends StatelessWidget {
         height: context.dynamicHeight(0.06),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          gradient: LinearGradient(
+          gradient: const LinearGradient(
             colors: [
-              AppColors().purple,
-              AppColors().pink,
-              AppColors().orange,
-              AppColors().yellow,
+              AppColors.purple,
+              AppColors.pink,
+              AppColors.orange,
+              AppColors.yellow,
             ],
           ),
         ),
@@ -34,7 +34,7 @@ final class GradientElevatedButton extends StatelessWidget {
           child: Text(
             text!,
             style: context.textTheme.bodyLarge?.copyWith(
-              color: AppColors().white,
+              color: AppColors.white,
             ),
           ),
         ),

@@ -20,8 +20,8 @@ final class NoImageTwoIconListTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ListTile(
-      iconColor: AppColors().white,
-      textColor: AppColors().white,
+      iconColor: AppColors.white,
+      textColor: AppColors.white,
       title: Text(
         title!,
       ),

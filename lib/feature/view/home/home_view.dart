@@ -31,7 +31,7 @@ class _HomeViewState extends State<HomeView> {
       drawer: buildDrawer(),
       appBar: AppBar(
         centerTitle: true,
-        backgroundColor: AppColors().background,
+        backgroundColor: AppColors.background,
         elevation: 0,
         title: Flexible(
           child: Padding(
@@ -40,14 +40,14 @@ class _HomeViewState extends State<HomeView> {
               decoration: InputDecoration(
                 hintText: AppStrings.search,
                 hintStyle: context.textTheme.titleMedium?.copyWith(
-                  color: AppColors().white,
+                  color: AppColors.white,
                 ),
-                prefixIcon: Icon(
+                prefixIcon: const Icon(
                   Icons.search,
-                  color: AppColors().white,
+                  color: AppColors.white,
                 ),
                 filled: true,
-                fillColor: AppColors().transparentWhite,
+                fillColor: AppColors.transparentWhite,
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.all(context.lowRadius),
@@ -58,7 +58,7 @@ class _HomeViewState extends State<HomeView> {
         ),
       ),
       key: viewModel.scaffoldKey,
-      backgroundColor: AppColors().background,
+      backgroundColor: AppColors.background,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -75,7 +75,7 @@ class _HomeViewState extends State<HomeView> {
 
   Drawer buildDrawer() {
     return Drawer(
-      backgroundColor: AppColors().background,
+      backgroundColor: AppColors.background,
       child: Column(
         children: [
           drawerImage(),
@@ -102,13 +102,13 @@ class _HomeViewState extends State<HomeView> {
           height: context.dynamicHeight(0.1),
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(context.normalRadius),
-            color: AppColors().transparentWhite,
+            color: AppColors.transparentWhite,
           ),
           child: Center(
             child: Text(
               AppStrings.ads,
               style: context.textTheme.headlineLarge?.copyWith(
-                color: AppColors().white,
+                color: AppColors.white,
               ),
             ),
           ),
@@ -126,14 +126,14 @@ class _HomeViewState extends State<HomeView> {
             shape: BeveledRectangleBorder(
               borderRadius: BorderRadius.all(context.lowRadius),
             ),
-            color: AppColors().transparentWhite,
+            color: AppColors.transparentWhite,
             child: IconButton(
               onPressed: () {
                 viewModel.scaffoldKey.currentState?.openDrawer();
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.apps,
-                color: AppColors().white,
+                color: AppColors.white,
               ),
             ),
           ),
@@ -145,14 +145,14 @@ class _HomeViewState extends State<HomeView> {
               decoration: InputDecoration(
                 hintText: AppStrings.search,
                 hintStyle: context.textTheme.titleMedium?.copyWith(
-                  color: AppColors().white,
+                  color: AppColors.white,
                 ),
-                prefixIcon: Icon(
+                prefixIcon: const Icon(
                   Icons.search,
-                  color: AppColors().white,
+                  color: AppColors.white,
                 ),
                 filled: true,
-                fillColor: AppColors().transparentWhite,
+                fillColor: AppColors.transparentWhite,
                 border: OutlineInputBorder(
                   borderSide: BorderSide.none,
                   borderRadius: BorderRadius.all(context.lowRadius),
@@ -180,17 +180,17 @@ class _HomeViewState extends State<HomeView> {
               });
             },
             child: Chip(
-              side: BorderSide(
+              side: const BorderSide(
                 width: 1.2,
-                color: AppColors().white,
+                color: AppColors.white,
               ),
-              labelStyle: TextStyle(
-                color: AppColors().white,
+              labelStyle: const TextStyle(
+                color: AppColors.white,
               ),
               label: Text(
                 viewModel.chips[index],
               ),
-              backgroundColor: viewModel.current == index ? AppColors().purple : AppColors().background,
+              backgroundColor: viewModel.current == index ? AppColors.purple : AppColors.background,
             ),
           ),
         ),
@@ -207,24 +207,24 @@ class _HomeViewState extends State<HomeView> {
           child: Text(
             AppStrings.header,
             style: context.textTheme.headlineSmall?.copyWith(
-              color: AppColors().white,
+              color: AppColors.white,
             ),
           ),
         ),
         const Spacer(),
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.sort,
-            color: AppColors().white,
+            color: AppColors.white,
           ),
         ),
         IconButton(
           padding: context.paddingLowHorizontal,
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.manage_search,
-            color: AppColors().white,
+            color: AppColors.white,
           ),
         ),
         SizedBox(
@@ -339,23 +339,23 @@ class PlaylistGridView extends StatelessWidget {
                   onTap: () {
                     Navigator.pushNamed(context, NavigationConstants.detail);
                   },
-                  title: Text(
+                  title: const Text(
                     AppStrings.musicTitle,
                     style: TextStyle(
-                      color: AppColors().white,
+                      color: AppColors.white,
                     ),
                   ),
-                  subtitle: Text(
+                  subtitle: const Text(
                     AppStrings.musicSubTitle,
                     style: TextStyle(
-                      color: AppColors().white,
+                      color: AppColors.white,
                     ),
                   ),
                   trailing: IconButton(
                     onPressed: () {},
-                    icon: Icon(
+                    icon: const Icon(
                       Icons.more_vert,
-                      color: AppColors().white,
+                      color: AppColors.white,
                     ),
                   ),
                 ),
@@ -388,22 +388,22 @@ class CreatePlaylistContainer extends StatelessWidget {
             10.0,
           ],
           radius: context.lowRadius,
-          color: AppColors().white,
+          color: AppColors.white,
           child: SizedBox(
             width: context.dynamicWidth(0.4),
             height: context.dynamicHeight(0.2),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(
+                const Icon(
                   Icons.add,
-                  color: AppColors().white,
+                  color: AppColors.white,
                   size: 30,
                 ),
                 Text(
                   AppStrings.createPlaylist,
                   style: context.textTheme.bodyMedium?.copyWith(
-                    color: AppColors().white,
+                    color: AppColors.white,
                   ),
                 )
               ],

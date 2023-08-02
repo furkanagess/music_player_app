@@ -11,7 +11,7 @@ class SettingsPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors().background,
+      backgroundColor: AppColors.background,
       appBar: buildAppbar(context),
       body: SingleChildScrollView(
         child: Center(
@@ -34,7 +34,7 @@ class SettingsPageView extends StatelessWidget {
 
   AppBar buildAppbar(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors().background,
+      backgroundColor: AppColors.background,
       elevation: 0,
       leading: IconButton(
         onPressed: () {
@@ -58,7 +58,7 @@ class SettingsPageView extends StatelessWidget {
           child: Text(
             AppStrings.help,
             style: context.textTheme.bodyLarge?.copyWith(
-              color: AppColors().white,
+              color: AppColors.white,
             ),
           ),
         ),
@@ -75,7 +75,7 @@ class SettingsPageView extends StatelessWidget {
           child: Text(
             AppStrings.general,
             style: context.textTheme.bodyLarge?.copyWith(
-              color: AppColors().white,
+              color: AppColors.white,
             ),
           ),
         ),
@@ -93,7 +93,7 @@ class GeneralSettingsArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors().darkBlue,
+        color: AppColors.darkBlue,
         borderRadius: BorderRadius.all(context.normalRadius),
       ),
       height: context.dynamicHeight(0.4),
@@ -152,7 +152,7 @@ class HelpSettingsArea extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: AppColors().darkBlue,
+        color: AppColors.darkBlue,
         borderRadius: BorderRadius.all(context.normalRadius),
       ),
       height: context.dynamicHeight(0.4),

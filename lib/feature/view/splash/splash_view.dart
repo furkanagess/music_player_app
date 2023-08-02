@@ -10,15 +10,15 @@ class MusicAppMusicAppSplashView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.bottomLeft,
             end: Alignment.topRight,
             colors: [
-              AppColors().purple,
-              AppColors().pink,
-              AppColors().orange,
-              AppColors().yellow,
+              AppColors.purple,
+              AppColors.pink,
+              AppColors.orange,
+              AppColors.yellow,
             ],
           ),
         ),

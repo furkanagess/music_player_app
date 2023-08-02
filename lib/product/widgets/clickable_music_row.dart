@@ -26,12 +26,12 @@ final class ClickableMusicRow extends StatelessWidget {
             Text(
               title!,
               style: context.textTheme.bodyMedium?.copyWith(
-                color: AppColors().white,
+                color: AppColors.white,
               ),
             ),
             Icon(
               icon,
-              color: AppColors().white,
+              color: AppColors.white,
             ),
           ],
         ),

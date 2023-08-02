@@ -19,12 +19,12 @@ final class DrawerListTile extends StatelessWidget {
     return ListTile(
       leading: Icon(
         icon,
-        color: AppColors().white,
+        color: AppColors.white,
       ),
       title: Text(
         title!,
         style: context.textTheme.bodyMedium?.copyWith(
-          color: AppColors().white,
+          color: AppColors.white,
         ),
       ),
       onTap: onTap,

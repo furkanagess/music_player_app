@@ -23,15 +23,15 @@ final class DownloadListtie extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       dense: false,
-      iconColor: AppColors().white,
-      textColor: AppColors().white,
+      iconColor: AppColors.white,
+      textColor: AppColors.white,
       title: Text(title!),
       subtitle: Text(subTitle!),
       trailing: InkWell(
         onTap: tapDownload,
-        child: CircleAvatar(
-          backgroundColor: AppColors().purple,
-          child: const Icon(
+        child: const CircleAvatar(
+          backgroundColor: AppColors.purple,
+          child: Icon(
             Icons.download,
           ),
         ),

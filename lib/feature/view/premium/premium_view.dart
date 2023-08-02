@@ -13,7 +13,7 @@ class PremiumPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors().background,
+      backgroundColor: AppColors.background,
       appBar: buildAppbar(context),
       body: Padding(
         padding: context.paddingLowHorizontal,
@@ -43,7 +43,7 @@ class PremiumPageView extends StatelessWidget {
 
   AppBar buildAppbar(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors().background,
+      backgroundColor: AppColors.background,
       elevation: 0,
       leading: IconButton(
         onPressed: () {
@@ -71,7 +71,7 @@ class PremiumPageView extends StatelessWidget {
       child: Text(
         AppStrings.removeAds,
         style: context.textTheme.bodySmall?.copyWith(
-          color: AppColors().white,
+          color: AppColors.white,
         ),
       ),
     );
@@ -85,11 +85,11 @@ class PremiumPageView extends StatelessWidget {
           header: AppStrings.oneMonth,
           bodyText1: AppStrings.standartPackage,
           bodyText2: AppStrings.empty,
-          color1: AppColors().transparentWhite,
-          color2: AppColors().transparentWhite,
-          color3: AppColors().transparentWhite,
-          color4: AppColors().transparentWhite,
-          subColor: AppColors().transparentWhite,
+          color1: AppColors.transparentWhite,
+          color2: AppColors.transparentWhite,
+          color3: AppColors.transparentWhite,
+          color4: AppColors.transparentWhite,
+          subColor: AppColors.transparentWhite,
           subText1: AppStrings.standartPrice,
           subText2: AppStrings.monthly,
           onTap: () {},
@@ -99,11 +99,11 @@ class PremiumPageView extends StatelessWidget {
           header: AppStrings.oneYear,
           bodyText1: AppStrings.premiumProfit,
           bodyText2: AppStrings.premiumPrice,
-          color1: AppColors().purple,
-          color2: AppColors().pink,
-          color3: AppColors().orange,
-          color4: AppColors().yellow,
-          subColor: AppColors().transparentWhite,
+          color1: AppColors.purple,
+          color2: AppColors.pink,
+          color3: AppColors.orange,
+          color4: AppColors.yellow,
+          subColor: AppColors.transparentWhite,
           subText1: AppStrings.monthlyPremium,
           subText2: AppStrings.monthly,
           onTap: () {},
@@ -116,7 +116,7 @@ class PremiumPageView extends StatelessWidget {
     return Text(
       AppStrings.removeAds,
       style: context.textTheme.bodyMedium?.copyWith(
-        color: AppColors().white,
+        color: AppColors.white,
       ),
     );
   }

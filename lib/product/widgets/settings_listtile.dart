@@ -26,13 +26,13 @@ final class CustomSettingsListtile extends StatelessWidget {
       title: Text(
         title!,
         style: context.textTheme.bodyMedium?.copyWith(
-          color: AppColors().white,
+          color: AppColors.white,
         ),
       ),
       subtitle: Text(
         subTitle ?? '',
         style: context.textTheme.bodyMedium?.copyWith(
-          color: AppColors().lightWhite,
+          color: AppColors.lightWhite,
         ),
       ),
       trailing: IconButton(
@@ -40,7 +40,7 @@ final class CustomSettingsListtile extends StatelessWidget {
         icon: Icon(
           icon,
           size: 40,
-          color: AppColors().white,
+          color: AppColors.white,
         ),
       ),
     );

@@ -60,7 +60,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors().background,
+      backgroundColor: AppColors.background,
       appBar: getAppBar(),
       body: SingleChildScrollView(
         child: Padding(
@@ -84,7 +84,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
 
   AppBar getAppBar() {
     return AppBar(
-      backgroundColor: AppColors().background,
+      backgroundColor: AppColors.background,
       elevation: 0,
       leading: IconButton(
         onPressed: () {
@@ -114,7 +114,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         padding: context.paddingNormalVertical,
         child: Container(
           decoration: BoxDecoration(
-            color: AppColors().darkBlue,
+            color: AppColors.darkBlue,
             borderRadius: BorderRadius.all(context.normalRadius),
           ),
           height: context.dynamicHeight(0.5),
@@ -129,14 +129,14 @@ class _MusicDetailViewState extends State<MusicDetailView> {
                     Text(
                       AppStrings.lyrics,
                       style: context.textTheme.titleLarge?.copyWith(
-                        color: AppColors().white,
+                        color: AppColors.white,
                       ),
                     ),
                     IconButton(
                       onPressed: () {},
-                      icon: Icon(
+                      icon: const Icon(
                         Icons.open_in_full,
-                        color: AppColors().white,
+                        color: AppColors.white,
                       ),
                     )
                   ],
@@ -155,7 +155,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
                               Text(
                                 AppStrings.lyricsSample,
                                 style: context.textTheme.bodyLarge?.copyWith(
-                                  color: AppColors().white,
+                                  color: AppColors.white,
                                 ),
                               ),
                             ],
@@ -177,8 +177,8 @@ class _MusicDetailViewState extends State<MusicDetailView> {
     return Column(
       children: [
         Slider(
-          activeColor: AppColors().purple,
-          inactiveColor: AppColors().lightWhite,
+          activeColor: AppColors.purple,
+          inactiveColor: AppColors.lightWhite,
           max: duration.inSeconds.toDouble(),
           value: position.inSeconds.toDouble(),
           onChanged: (value) async {
@@ -195,13 +195,13 @@ class _MusicDetailViewState extends State<MusicDetailView> {
               Text(
                 formatTime(position),
                 style: context.textTheme.bodySmall?.copyWith(
-                  color: AppColors().white,
+                  color: AppColors.white,
                 ),
               ),
               Text(
                 formatTime(duration - position),
                 style: context.textTheme.bodySmall?.copyWith(
-                  color: AppColors().white,
+                  color: AppColors.white,
                 ),
               ),
             ],
@@ -226,27 +226,27 @@ class _MusicDetailViewState extends State<MusicDetailView> {
       children: [
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.library_music,
-            color: AppColors().white,
+            color: AppColors.white,
           ),
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.shuffle,
-            color: AppColors().white,
+            color: AppColors.white,
           ),
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.skip_previous,
-            color: AppColors().white,
+            color: AppColors.white,
           ),
         ),
         FloatingActionButton(
-          backgroundColor: AppColors().purple,
+          backgroundColor: AppColors.purple,
           child: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
           onPressed: () async {
             if (isPlaying) {
@@ -258,23 +258,23 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.skip_next,
-            color: AppColors().white,
+            color: AppColors.white,
           ),
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.alarm_rounded,
-            color: AppColors().white,
+            color: AppColors.white,
           ),
         ),
         IconButton(
           onPressed: () {},
-          icon: Icon(
+          icon: const Icon(
             Icons.equalizer,
-            color: AppColors().white,
+            color: AppColors.white,
           ),
         ),
       ],
