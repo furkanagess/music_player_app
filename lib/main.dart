@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:music_player_app/feature/view/detail/music_detail_view.dart';
 import 'package:music_player_app/feature/view/home/home_view.dart';
-import 'package:music_player_app/feature/view/premium/premium_view.dart';
-import 'package:music_player_app/feature/view/settings/settings_view.dart';
 import 'package:music_player_app/product/constants/appConstants/app_strings.dart';
-import 'package:music_player_app/product/constants/appConstants/navigation_constants.dart';
+import 'package:music_player_app/product/navigation/routes.dart';
 
 void main() => runApp(const MyApp());
 
@@ -17,12 +14,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: AppStrings.appName,
       home: const HomeView(),
-      routes: {
-        NavigationConstants.premium: (context) => const PremiumPageView(),
-        NavigationConstants.settings: (context) => const SettingsPageView(),
-        NavigationConstants.detail: (context) => const MusicDetailView(),
-        NavigationConstants.home: (context) => const HomeView(),
-      },
+      routes: Routes.appRoutes,
     );
   }
 }
