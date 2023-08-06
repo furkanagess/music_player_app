@@ -28,6 +28,7 @@ class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       drawer: buildDrawer(),
       appBar: AppBar(
         centerTitle: true,
