@@ -30,45 +30,46 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       resizeToAvoidBottomInset: false,
       drawer: buildDrawer(),
-      appBar: AppBar(
-        centerTitle: true,
-        backgroundColor: AppColors.background,
-        elevation: 0,
-        title: Flexible(
-          child: Padding(
-            padding: context.paddingLow,
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: AppStrings.search,
-                hintStyle: context.textTheme.titleMedium?.copyWith(
-                  color: AppColors.white,
-                ),
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: AppColors.white,
-                ),
-                filled: true,
-                fillColor: AppColors.transparentWhite,
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.all(context.lowRadius),
+      key: viewModel.scaffoldKey,
+      backgroundColor: AppColors.background,
+      body: NestedScrollView(
+        headerSliverBuilder: (context, innerBoxIsScrolled) {
+          return [
+            SliverAppBar(
+              title: Flexible(
+                child: Padding(
+                  padding: context.paddingLow,
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: AppStrings.search,
+                      hintStyle: context.textTheme.titleMedium?.copyWith(
+                        color: AppColors.white,
+                      ),
+                      prefixIcon: const Icon(
+                        Icons.search,
+                      ),
+                      filled: true,
+                      fillColor: AppColors.transparentWhite,
+                      border: OutlineInputBorder(
+                        borderSide: BorderSide.none,
+                        borderRadius: BorderRadius.all(context.lowRadius),
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ),
+          ];
+        },
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              headerRow(context),
+              chipListview(context),
+              adMob(context, homeBottomSheet),
+              viewModel.homeBody[viewModel.current],
+            ],
           ),
-        ),
-      ),
-      key: viewModel.scaffoldKey,
-      backgroundColor: AppColors.background,
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            //  searchRow(context),
-            headerRow(context),
-            chipListview(context),
-            adMob(context, homeBottomSheet),
-            viewModel.homeBody[viewModel.current],
-          ],
         ),
       ),
     );
@@ -76,7 +77,7 @@ class _HomeViewState extends State<HomeView> {
 
   Drawer buildDrawer() {
     return Drawer(
-      backgroundColor: AppColors.background,
+
       child: Column(
         children: [
           drawerImage(),
@@ -115,54 +116,6 @@ class _HomeViewState extends State<HomeView> {
           ),
         ),
       ),
-    );
-  }
-
-  Row searchRow(BuildContext context) {
-    return Row(
-      children: [
-        Padding(
-          padding: context.paddingLowHorizontal,
-          child: Card(
-            shape: BeveledRectangleBorder(
-              borderRadius: BorderRadius.all(context.lowRadius),
-            ),
-            color: AppColors.transparentWhite,
-            child: IconButton(
-              onPressed: () {
-                viewModel.scaffoldKey.currentState?.openDrawer();
-              },
-              icon: const Icon(
-                Icons.apps,
-                color: AppColors.white,
-              ),
-            ),
-          ),
-        ),
-        Flexible(
-          child: Padding(
-            padding: context.paddingLow,
-            child: TextField(
-              decoration: InputDecoration(
-                hintText: AppStrings.search,
-                hintStyle: context.textTheme.titleMedium?.copyWith(
-                  color: AppColors.white,
-                ),
-                prefixIcon: const Icon(
-                  Icons.search,
-                  color: AppColors.white,
-                ),
-                filled: true,
-                fillColor: AppColors.transparentWhite,
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
-                  borderRadius: BorderRadius.all(context.lowRadius),
-                ),
-              ),
-            ),
-          ),
-        ),
-      ],
     );
   }
 
@@ -217,7 +170,6 @@ class _HomeViewState extends State<HomeView> {
           onPressed: () {},
           icon: const Icon(
             Icons.sort,
-            color: AppColors.white,
           ),
         ),
         IconButton(
@@ -225,7 +177,6 @@ class _HomeViewState extends State<HomeView> {
           onPressed: () {},
           icon: const Icon(
             Icons.manage_search,
-            color: AppColors.white,
           ),
         ),
         SizedBox(
@@ -356,7 +307,6 @@ class PlaylistGridView extends StatelessWidget {
                     onPressed: () {},
                     icon: const Icon(
                       Icons.more_vert,
-                      color: AppColors.white,
                     ),
                   ),
                 ),
@@ -398,7 +348,6 @@ class CreatePlaylistContainer extends StatelessWidget {
               children: [
                 const Icon(
                   Icons.add,
-                  color: AppColors.white,
                   size: 30,
                 ),
                 Text(

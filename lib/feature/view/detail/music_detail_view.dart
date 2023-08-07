@@ -60,7 +60,6 @@ class _MusicDetailViewState extends State<MusicDetailView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
       appBar: getAppBar(),
       body: SingleChildScrollView(
         child: Padding(
@@ -84,8 +83,6 @@ class _MusicDetailViewState extends State<MusicDetailView> {
 
   AppBar getAppBar() {
     return AppBar(
-      backgroundColor: AppColors.background,
-      elevation: 0,
       leading: IconButton(
         onPressed: () {
           Navigator.pushNamed(context, NavigationConstants.home);
@@ -102,8 +99,12 @@ class _MusicDetailViewState extends State<MusicDetailView> {
           ),
         )
       ],
-      centerTitle: true,
-      title: const Text(AppStrings.musicName),
+      title: Text(
+        AppStrings.musicName,
+        style: context.textTheme.titleLarge?.copyWith(
+          color: AppColors.white,
+        ),
+      ),
     );
   }
 
@@ -228,21 +229,18 @@ class _MusicDetailViewState extends State<MusicDetailView> {
           onPressed: () {},
           icon: const Icon(
             Icons.library_music,
-            color: AppColors.white,
           ),
         ),
         IconButton(
           onPressed: () {},
           icon: const Icon(
             Icons.shuffle,
-            color: AppColors.white,
           ),
         ),
         IconButton(
           onPressed: () {},
           icon: const Icon(
             Icons.skip_previous,
-            color: AppColors.white,
           ),
         ),
         FloatingActionButton(
@@ -260,21 +258,18 @@ class _MusicDetailViewState extends State<MusicDetailView> {
           onPressed: () {},
           icon: const Icon(
             Icons.skip_next,
-            color: AppColors.white,
           ),
         ),
         IconButton(
           onPressed: () {},
           icon: const Icon(
             Icons.alarm_rounded,
-            color: AppColors.white,
           ),
         ),
         IconButton(
           onPressed: () {},
           icon: const Icon(
             Icons.equalizer,
-            color: AppColors.white,
           ),
         ),
       ],

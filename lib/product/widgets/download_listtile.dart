@@ -23,7 +23,6 @@ final class DownloadListtie extends StatelessWidget {
   Widget build(BuildContext context) {
     return ListTile(
       dense: false,
-      iconColor: AppColors.white,
       textColor: AppColors.white,
       title: Text(title!),
       subtitle: Text(subTitle!),

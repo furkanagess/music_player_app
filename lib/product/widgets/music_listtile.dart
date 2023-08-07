@@ -26,7 +26,6 @@ final class MusicListTile extends StatelessWidget {
       onTap: onTap,
       child: ListTile(
         dense: false,
-        iconColor: AppColors.white,
         textColor: AppColors.white,
         title: Text(title!),
         subtitle: Text(subTitle!),
