@@ -13,7 +13,6 @@ class PremiumPageView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: AppColors.background,
       appBar: buildAppbar(context),
       body: Padding(
         padding: context.paddingLowHorizontal,
@@ -43,8 +42,6 @@ class PremiumPageView extends StatelessWidget {
 
   AppBar buildAppbar(BuildContext context) {
     return AppBar(
-      backgroundColor: AppColors.background,
-      elevation: 0,
       leading: IconButton(
         onPressed: () {
           Navigator.pushNamed(context, NavigationConstants.home);
@@ -129,7 +126,7 @@ class PremiumPageView extends StatelessWidget {
         borderRadius: BorderRadius.all(context.normalRadius),
         image: DecorationImage(
           image: AssetImage(
-            PNGConstants.instance.headphone,
+            PNGConstants.headphone,
           ),
         ),
       ),

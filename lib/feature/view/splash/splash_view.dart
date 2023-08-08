@@ -25,7 +25,7 @@ class MusicAppMusicAppSplashView extends StatelessWidget {
         child: Center(
           child: SizedBox(
             width: context.dynamicWidth(0.3),
-            child: Image.asset(PNGConstants.instance.fioLogo),
+            child: Image.asset(PNGConstants.fioLogo),
           ),
         ),
       ),

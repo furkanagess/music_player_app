@@ -12,11 +12,11 @@ final class HomeBottomSheet extends ChangeNotifier {
   Future<dynamic> musicControllBottomSheet(BuildContext context) {
     return showModalBottomSheet(
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(
-          context.normalRadius,
+        borderRadius: BorderRadius.only(
+          topLeft: context.normalRadius,
+          topRight: context.normalRadius,
         ),
       ),
-      backgroundColor: AppColors.darkBlue,
       context: context,
       builder: (context) => Column(
         children: [
@@ -34,9 +34,18 @@ final class HomeBottomSheet extends ChangeNotifier {
             trailing: Wrap(
               spacing: 8,
               children: [
-                skipPrevButton(),
-                pauseButton(),
-                skipNextButton(),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.skip_previous),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.pause),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.skip_next),
+                ),
               ],
             ),
             leading: ClipRRect(
@@ -79,27 +88,6 @@ final class HomeBottomSheet extends ChangeNotifier {
     );
   }
 
-  IconButton skipNextButton() {
-    return IconButton(
-      onPressed: () {},
-      icon: const Icon(Icons.skip_next),
-    );
-  }
-
-  IconButton pauseButton() {
-    return IconButton(
-      onPressed: () {},
-      icon: const Icon(Icons.pause),
-    );
-  }
-
-  IconButton skipPrevButton() {
-    return IconButton(
-      onPressed: () {},
-      icon: const Icon(Icons.skip_previous),
-    );
-  }
-
   Future<dynamic> downloadBottomSheet(BuildContext context) {
     return showModalBottomSheet(
       shape: RoundedRectangleBorder(
@@ -108,7 +96,6 @@ final class HomeBottomSheet extends ChangeNotifier {
           topRight: context.normalRadius,
         ),
       ),
-      backgroundColor: AppColors.darkBlue,
       context: context,
       builder: (context) => Column(
         children: [
@@ -131,6 +118,7 @@ final class HomeBottomSheet extends ChangeNotifier {
                 backgroundColor: AppColors.purple,
                 child: Icon(
                   Icons.close,
+                  color: AppColors.white,
                 ),
               ),
             ),
@@ -150,7 +138,9 @@ final class HomeBottomSheet extends ChangeNotifier {
           Padding(
             padding: context.paddingLow,
             child: InkWell(
-              onTap: () {},
+              onTap: () {
+                adShowDialog(context);
+              },
               child: Container(
                 height: context.dynamicHeight(0.1),
                 decoration: BoxDecoration(
@@ -181,8 +171,6 @@ final class HomeBottomSheet extends ChangeNotifier {
           shape: BeveledRectangleBorder(
             borderRadius: BorderRadius.all(context.lowRadius),
           ),
-          elevation: 3,
-          backgroundColor: AppColors.darkBlue,
           title: Column(
             children: [
               Row(
@@ -197,7 +185,6 @@ final class HomeBottomSheet extends ChangeNotifier {
                       height: context.dynamicHeight(0.05),
                       child: const Icon(
                         Icons.close,
-                        color: AppColors.white,
                       ),
                     ),
                   )
@@ -207,7 +194,7 @@ final class HomeBottomSheet extends ChangeNotifier {
                 width: context.dynamicWidth(0.7),
                 height: context.dynamicHeight(0.2),
                 child: Image.asset(
-                  PNGConstants.instance.fioLogo,
+                  PNGConstants.fioLogo,
                 ),
               ),
               SizedBox(
@@ -228,19 +215,6 @@ final class HomeBottomSheet extends ChangeNotifier {
                     style: context.textTheme.bodyLarge?.copyWith(
                       color: AppColors.white,
                       fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: context.dynamicHeight(0.03),
-              ),
-              Row(
-                children: [
-                  Text(
-                    AppStrings.reachProperties,
-                    style: context.textTheme.bodyMedium?.copyWith(
-                      color: AppColors.white,
                     ),
                   ),
                 ],
@@ -286,7 +260,6 @@ final class HomeBottomSheet extends ChangeNotifier {
           topRight: context.normalRadius,
         ),
       ),
-      backgroundColor: AppColors.darkBlue,
       context: context,
       builder: (context) => Padding(
         padding: context.paddingNormal,

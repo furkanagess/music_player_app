@@ -31,7 +31,6 @@ class _HomeViewState extends State<HomeView> {
       resizeToAvoidBottomInset: false,
       drawer: buildDrawer(),
       key: viewModel.scaffoldKey,
-      backgroundColor: AppColors.background,
       body: NestedScrollView(
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
@@ -77,7 +76,6 @@ class _HomeViewState extends State<HomeView> {
 
   Drawer buildDrawer() {
     return Drawer(
-
       child: Column(
         children: [
           drawerImage(),
@@ -134,17 +132,16 @@ class _HomeViewState extends State<HomeView> {
               });
             },
             child: Chip(
-              side: const BorderSide(
-                width: 1.2,
-                color: AppColors.white,
-              ),
               labelStyle: const TextStyle(
                 color: AppColors.white,
               ),
               label: Text(
                 viewModel.chips[index],
+                style: context.textTheme.bodyMedium?.copyWith(
+                  color: viewModel.current == index ? AppColors.background : AppColors.white,
+                ),
               ),
-              backgroundColor: viewModel.current == index ? AppColors.purple : AppColors.background,
+              backgroundColor: viewModel.current == index ? AppColors.purple : AppColors.transparentWhite,
             ),
           ),
         ),
@@ -484,7 +481,7 @@ DrawerListTile drawerLibrary() {
 DrawerHeader drawerImage() {
   return DrawerHeader(
     child: Image.asset(
-      PNGConstants.instance.fioLogo,
+      PNGConstants.fioLogo,
     ),
   );
 }

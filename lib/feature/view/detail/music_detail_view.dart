@@ -295,7 +295,7 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         borderRadius: BorderRadius.all(context.normalRadius),
         image: DecorationImage(
           image: AssetImage(
-            PNGConstants.instance.asset,
+            PNGConstants.asset,
           ),
         ),
       ),
