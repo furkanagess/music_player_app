@@ -1,13 +1,15 @@
+import 'package:flutter/material.dart';
+
+@immutable
 final class PNGConstants {
-  PNGConstants._init();
-  static PNGConstants? _instace;
+  const PNGConstants._init();
 
-  static PNGConstants get instance => _instace ??= PNGConstants._init();
+  static final String adGroup2 = 'ad_group'.toPng;
+  static final String asset = 'asset'.toPng;
+  static final String fioLogo = 'fio_logo'.toPng;
+  static final String headphone = 'headphone'.toPng;
+}
 
-  String toPNG(String name) => 'assets/png/$name.png';
-
-  String get adGroup => toPNG('ad_group');
-  String get asset => toPNG('asset');
-  String get fioLogo => toPNG('fio_logo');
-  String get headphone => toPNG('headphone');
+extension on String {
+  String get toPng => 'assets/png/$this.png';
 }
