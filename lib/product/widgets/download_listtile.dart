@@ -32,6 +32,7 @@ final class DownloadListtie extends StatelessWidget {
           backgroundColor: AppColors.purple,
           child: Icon(
             Icons.download,
+            color: Colors.white,
           ),
         ),
       ),
