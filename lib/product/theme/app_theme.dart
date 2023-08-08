@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
 
+@immutable
 final class AppTheme {
   ThemeData get theme {
     return ThemeData(
@@ -9,11 +10,24 @@ final class AppTheme {
       scaffoldBackgroundColor: _colorScheme.background,
       colorScheme: _colorScheme,
       iconTheme: _iconThemeData,
-      drawerTheme: DrawerThemeData(
-        backgroundColor: _colorScheme.background,
-      ),
+      drawerTheme: _drawerThemeData,
+      dialogTheme: _dialogTheme,
+      bottomSheetTheme: _bottomSheetThemeData,
     );
   }
+
+  BottomSheetThemeData get _bottomSheetThemeData => const BottomSheetThemeData(
+        elevation: 3,
+        backgroundColor: AppColors.darkBlue,
+      );
+
+  DialogTheme get _dialogTheme => const DialogTheme(
+        backgroundColor: AppColors.darkBlue,
+      );
+
+  DrawerThemeData get _drawerThemeData => DrawerThemeData(
+        backgroundColor: _colorScheme.background,
+      );
 
   IconThemeData get _iconThemeData => IconThemeData(
         color: _colorScheme.onPrimary,
@@ -23,6 +37,9 @@ final class AppTheme {
         centerTitle: true,
         backgroundColor: _colorScheme.background,
         elevation: 0,
+        iconTheme: IconThemeData(
+          color: _colorScheme.onPrimary,
+        ),
       );
 
   ColorScheme get _colorScheme => const ColorScheme(
