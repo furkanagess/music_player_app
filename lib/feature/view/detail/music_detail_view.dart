@@ -124,43 +124,44 @@ class _MusicDetailViewState extends State<MusicDetailView> {
             padding: context.paddingNormal,
             child: Column(
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      AppStrings.lyrics,
-                      style: context.textTheme.titleLarge?.copyWith(
-                        color: AppColors.white,
+                Expanded(
+                  flex: 2,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        AppStrings.lyrics,
+                        style: context.textTheme.titleLarge?.copyWith(
+                          color: AppColors.white,
+                        ),
                       ),
-                    ),
-                    IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.open_in_full,
-                        color: AppColors.white,
-                      ),
-                    )
-                  ],
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(
+                          Icons.open_in_full,
+                        ),
+                      )
+                    ],
+                  ),
                 ),
                 Expanded(
+                  flex: 8,
                   child: ListView.builder(
                     padding: context.paddingLow,
                     shrinkWrap: true,
                     itemCount: 20,
                     itemBuilder: (context, index) => Padding(
                       padding: context.paddingLowVertical,
-                      child: Expanded(
-                        child: SingleChildScrollView(
-                          child: Column(
-                            children: [
-                              Text(
-                                AppStrings.lyricsSample,
-                                style: context.textTheme.bodyLarge?.copyWith(
-                                  color: AppColors.white,
-                                ),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            Text(
+                              AppStrings.lyricsSample,
+                              style: context.textTheme.bodyLarge?.copyWith(
+                                color: AppColors.white,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ),
                     ),
@@ -245,7 +246,10 @@ class _MusicDetailViewState extends State<MusicDetailView> {
         ),
         FloatingActionButton(
           backgroundColor: AppColors.purple,
-          child: Icon(isPlaying ? Icons.pause : Icons.play_arrow),
+          child: Icon(
+            isPlaying ? Icons.pause : Icons.play_arrow,
+            color: AppColors.white,
+          ),
           onPressed: () async {
             if (isPlaying) {
               await audioPlayer.pause();

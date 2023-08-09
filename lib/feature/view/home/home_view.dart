@@ -10,7 +10,6 @@ import 'package:music_player_app/product/constants/appConstants/navigation_const
 import 'package:music_player_app/product/constants/assetConstants/color_constants.dart';
 import 'package:music_player_app/product/constants/assetConstants/png_constants.dart';
 import 'package:music_player_app/product/extension/contex_extension.dart';
-import 'package:music_player_app/product/widgets/clickable_music_row.dart';
 import 'package:music_player_app/product/widgets/download_listtile.dart';
 import 'package:music_player_app/product/widgets/drawer_listtile.dart';
 import 'package:music_player_app/product/widgets/music_listtile.dart';
@@ -35,25 +34,20 @@ class _HomeViewState extends State<HomeView> {
         headerSliverBuilder: (context, innerBoxIsScrolled) {
           return [
             SliverAppBar(
-              title: Flexible(
-                child: Padding(
-                  padding: context.paddingLow,
-                  child: TextField(
-                    decoration: InputDecoration(
-                      hintText: AppStrings.search,
-                      hintStyle: context.textTheme.titleMedium?.copyWith(
-                        color: AppColors.white,
-                      ),
-                      prefixIcon: const Icon(
-                        Icons.search,
-                      ),
-                      filled: true,
-                      fillColor: AppColors.transparentWhite,
-                      border: OutlineInputBorder(
-                        borderSide: BorderSide.none,
-                        borderRadius: BorderRadius.all(context.lowRadius),
-                      ),
-                    ),
+              title: TextField(
+                decoration: InputDecoration(
+                  hintText: AppStrings.search,
+                  hintStyle: context.textTheme.titleMedium?.copyWith(
+                    color: AppColors.white,
+                  ),
+                  prefixIcon: const Icon(
+                    Icons.search,
+                  ),
+                  filled: true,
+                  fillColor: AppColors.transparentWhite,
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide.none,
+                    borderRadius: BorderRadius.all(context.lowRadius),
                   ),
                 ),
               ),
@@ -127,9 +121,11 @@ class _HomeViewState extends State<HomeView> {
           padding: context.paddingMediumHorizontal,
           child: InkWell(
             onTap: () {
-              setState(() {
-                viewModel.current = index;
-              });
+              setState(
+                () {
+                  viewModel.current = index;
+                },
+              );
             },
             child: Chip(
               labelStyle: const TextStyle(
@@ -345,12 +341,14 @@ class CreatePlaylistContainer extends StatelessWidget {
               children: [
                 const Icon(
                   Icons.add,
-                  size: 30,
                 ),
-                Text(
-                  AppStrings.createPlaylist,
-                  style: context.textTheme.bodyMedium?.copyWith(
-                    color: AppColors.white,
+                Padding(
+                  padding: context.paddingLow,
+                  child: Text(
+                    AppStrings.createPlaylist,
+                    style: context.textTheme.bodyMedium?.copyWith(
+                      color: AppColors.white,
+                    ),
                   ),
                 )
               ],
@@ -360,62 +358,6 @@ class CreatePlaylistContainer extends StatelessWidget {
       ),
     );
   }
-}
-
-ClickableMusicRow reportButton() {
-  return ClickableMusicRow(
-    onTap: () {},
-    title: AppStrings.report,
-    icon: Icons.error,
-  );
-}
-
-ClickableMusicRow deleteButton() {
-  return ClickableMusicRow(
-    onTap: () {},
-    title: AppStrings.deleteList,
-    icon: Icons.playlist_remove,
-  );
-}
-
-ClickableMusicRow sleepTimerButton() {
-  return ClickableMusicRow(
-    onTap: () {},
-    title: AppStrings.sleepTimer,
-    icon: Icons.alarm_on,
-  );
-}
-
-ClickableMusicRow repeatButton() {
-  return ClickableMusicRow(
-    onTap: () {},
-    title: AppStrings.repeatAll,
-    icon: Icons.replay,
-  );
-}
-
-ClickableMusicRow addListButton() {
-  return ClickableMusicRow(
-    onTap: () {},
-    title: AppStrings.addList,
-    icon: Icons.playlist_add,
-  );
-}
-
-ClickableMusicRow addMusicButton() {
-  return ClickableMusicRow(
-    onTap: () {},
-    title: AppStrings.addMusic,
-    icon: Icons.favorite_border,
-  );
-}
-
-ClickableMusicRow playNextButton() {
-  return ClickableMusicRow(
-    onTap: () {},
-    title: AppStrings.playNext,
-    icon: Icons.queue_music,
-  );
 }
 
 DrawerListTile drawerSettings(BuildContext context) {
