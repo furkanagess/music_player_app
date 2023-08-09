@@ -3,9 +3,9 @@
 final class AppStrings {
   static const empty = '';
   static const appName = 'Video Player App';
-  static const closeAd = 'Reklamları Kapat';
+  static const closeAd = 'Remove Ads';
 
-  static const next = 'Devam et';
+  static const next = 'Continue';
   static const reachProperties = 'Tüm özelliklere eriş. Mükemmel bir Player \n          deneyimine hazır ol!';
   static const reachProperties2 =
       'Tüm özelliklere eriş. Mükemmel bir Player  \n deneyimine hazır ol!  Tüm özelliklere eriş.  \n deneyimine hazır ol!';
@@ -13,20 +13,20 @@ final class AppStrings {
   static const musicTitle = 'Kalbin Yok Mu';
   static const musicSubTitle = 'Marc Aryan';
   static const recent = 'Recent';
-  static const header = 'Merhaba, iyi günler';
-  static const playNext = 'Sonrakini Çal';
-  static const addMusic = 'Parçalara Ekle';
-  static const addList = 'Oynatma Listesine Ekle';
-  static const repeatAll = 'Tümünü Tekrarla';
+  static const header = 'Good night';
+  static const playNext = 'Play next';
+  static const addMusic = 'Add to my musics';
+  static const addList = 'Add to playlist';
+  static const repeatAll = 'Repeat all';
 
-  static const deleteList = 'Çalma Listesinden Sil';
-  static const report = 'İçeriği Raporla';
+  static const deleteList = 'Remove from playlist';
+  static const report = 'Report content';
   static const ads = 'ADS';
 
-  // Create Playlist Bottom Sheet
-  static const createPlaylist = 'Oynatma Listesi \n        Oluştur';
+  //  Playlist
+  static const createPlaylist = 'Create Playlist';
   static const playlistName = 'Oynatma Listesi Adı';
-  static const giveName = 'İsimlendir';
+  static const create = 'Create';
 
   // Drawer Hints
   static const library = 'Library';
