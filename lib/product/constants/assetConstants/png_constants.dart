@@ -6,7 +6,7 @@ final class PNGConstants {
 
   static final String adGroup2 = 'ad_group'.toPng;
   static final String asset = 'asset'.toPng;
-  static final String fioLogo = 'fio_logo'.toPng;
+  static final String fioLogo = 'ic_music2'.toPng;
   static final String headphone = 'headphone'.toPng;
 }
 

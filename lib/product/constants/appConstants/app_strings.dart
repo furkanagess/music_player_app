@@ -6,9 +6,8 @@ final class AppStrings {
   static const closeAd = 'Remove Ads';
 
   static const next = 'Continue';
-  static const reachProperties = 'Tüm özelliklere eriş. Mükemmel bir Player \n          deneyimine hazır ol!';
-  static const reachProperties2 =
-      'Tüm özelliklere eriş. Mükemmel bir Player  \n deneyimine hazır ol!  Tüm özelliklere eriş.  \n deneyimine hazır ol!';
+  static const reachProperties = 'Access all features and get a seamless \n app experience.';
+
   static const search = 'Search';
   static const musicTitle = 'Kalbin Yok Mu';
   static const musicSubTitle = 'Marc Aryan';
@@ -25,7 +24,7 @@ final class AppStrings {
 
   //  Playlist
   static const createPlaylist = 'Create Playlist';
-  static const playlistName = 'Oynatma Listesi Adı';
+  static const playlistName = 'Playlist Name';
   static const create = 'Create';
 
   // Drawer Hints
