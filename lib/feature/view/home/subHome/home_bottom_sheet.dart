@@ -256,24 +256,12 @@ final class HomeBottomSheet extends ChangeNotifier {
               SizedBox(
                 height: context.dynamicHeight(0.05),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    AppStrings.closeAd,
-                    style: context.textTheme.bodyLarge?.copyWith(
-                      color: AppColors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                  Text(
-                    AppStrings.monthly,
-                    style: context.textTheme.bodyLarge?.copyWith(
-                      color: AppColors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
+              Text(
+                AppStrings.closeAd,
+                style: context.textTheme.bodyLarge?.copyWith(
+                  color: AppColors.white,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
               SizedBox(
                 height: context.dynamicHeight(0.03),
@@ -292,7 +280,7 @@ final class HomeBottomSheet extends ChangeNotifier {
                   Padding(
                     padding: context.paddingLow,
                     child: Text(
-                      AppStrings.reachProperties2,
+                      AppStrings.reachProperties,
                       style: context.textTheme.bodySmall?.copyWith(
                         color: AppColors.white,
                         fontWeight: FontWeight.w300,
