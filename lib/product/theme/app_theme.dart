@@ -50,7 +50,7 @@ final class AppTheme {
         onSecondary: Colors.blue,
         error: Color(0xFFF44336),
         onError: Colors.red,
-        background: AppColors.background,
+        background: AppColors.background, // used
         onBackground: Color(0xff212121),
         surface: Color(0xffb3b3b3),
         onSurface: Color(0x00000000),
